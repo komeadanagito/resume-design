@@ -1,0 +1,6 @@
+# Excluded directories
+open-design/
+reactive-resume/
+
+# macOS
+.DS_Store
