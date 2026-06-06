@@ -1,0 +1,3 @@
+# 忽略子项目目录（不纳入 git 提交）
+reactive-resume/
+open-design/
