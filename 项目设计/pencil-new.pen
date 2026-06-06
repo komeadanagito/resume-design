@@ -10,7 +10,7 @@
       "clip": true,
       "width": 800,
       "height": 600,
-      "fill": "#FFFFFF",
+      "fill": "#fffafd",
       "layout": "none"
     },
     {
@@ -21,7 +21,7 @@
       "name": "01 Landing Page",
       "width": 1440,
       "height": 1024,
-      "fill": "#FCFAF7",
+      "fill": "#f6f1d7",
       "layout": "none",
       "children": [
         {
@@ -32,8 +32,8 @@
           "name": "Reference Top Navigation",
           "width": 1344,
           "height": 72,
-          "fill": "#FFFFFF",
-          "cornerRadius": 28,
+          "fill": "#fff8e7",
+          "cornerRadius": 34,
           "layout": "none",
           "children": [
             {
@@ -44,8 +44,8 @@
               "name": "Small Logo Icon",
               "width": 26,
               "height": 26,
-              "fill": "#FFFFFF",
-              "cornerRadius": 9,
+              "fill": "#fff8e7",
+              "cornerRadius": 14,
               "layout": "none",
               "children": [
                 {
@@ -56,8 +56,8 @@
                   "name": "Mini Cat Logo Mark",
                   "width": 16,
                   "height": 14,
-                  "fill": "#F5F2ED",
-                  "cornerRadius": 6
+                  "fill": "#eef7d9",
+                  "cornerRadius": 10
                 },
                 {
                   "type": "frame",
@@ -67,8 +67,8 @@
                   "name": "Mini Ear Left",
                   "width": 6,
                   "height": 6,
-                  "fill": "#F8C9D4",
-                  "cornerRadius": 3
+                  "fill": "#f3c987",
+                  "cornerRadius": 7
                 },
                 {
                   "type": "frame",
@@ -78,8 +78,8 @@
                   "name": "Mini Ear Right",
                   "width": 6,
                   "height": 6,
-                  "fill": "#F8C9D4",
-                  "cornerRadius": 3
+                  "fill": "#f3c987",
+                  "cornerRadius": 7
                 },
                 {
                   "type": "frame",
@@ -89,7 +89,7 @@
                   "name": "Mini Face",
                   "width": 12,
                   "height": 9,
-                  "fill": "#D8D0C7",
+                  "fill": "#d8c29a",
                   "cornerRadius": 9999
                 }
               ]
@@ -100,7 +100,7 @@
               "x": 72,
               "y": 24,
               "name": "Brand",
-              "fill": "#1A1A1A",
+              "fill": "#5c4b36",
               "textGrowth": "fixed-width-height",
               "width": 180,
               "height": 24,
@@ -115,7 +115,7 @@
               "x": 1068,
               "y": 25,
               "name": "Templates Nav",
-              "fill": "#666666",
+              "fill": "#8a7a5f",
               "textGrowth": "fixed-width-height",
               "width": 88,
               "height": 22,
@@ -130,7 +130,7 @@
               "x": 1172,
               "y": 25,
               "name": "AI Builder Nav",
-              "fill": "#666666",
+              "fill": "#8a7a5f",
               "textGrowth": "fixed-width-height",
               "width": 86,
               "height": 22,
@@ -147,8 +147,8 @@
               "name": "Top Start Button",
               "width": 72,
               "height": 40,
-              "fill": "#1A1A1A",
-              "cornerRadius": 16,
+              "fill": "#5c4b36",
+              "cornerRadius": 24,
               "layout": "none",
               "children": [
                 {
@@ -157,7 +157,7 @@
                   "x": 14,
                   "y": 11,
                   "name": "Top Start Text",
-                  "fill": "#FFFFFF",
+                  "fill": "#fff8e7",
                   "textGrowth": "fixed-width-height",
                   "width": 44,
                   "height": 18,
@@ -179,8 +179,29 @@
           "name": "Centered Hero Card",
           "width": 1344,
           "height": 430,
-          "fill": "#FFFFFF",
-          "cornerRadius": 36,
+          "fill": "#fff8e7",
+          "cornerRadius": 38,
+          "effect": [
+            {
+              "type": "shadow",
+              "shadowType": "outer",
+              "color": "#d58adf26",
+              "offset": {
+                "x": 0,
+                "y": 18
+              },
+              "blur": 48
+            },
+            {
+              "type": "shadow",
+              "shadowType": "outer",
+              "color": "#ffffffcc",
+              "offset": {
+                "x": 0,
+                "y": 1
+              }
+            }
+          ],
           "layout": "none",
           "children": [
             {
@@ -191,8 +212,8 @@
               "name": "Floating Logo Card",
               "width": 136,
               "height": 124,
-              "fill": "#FFFFFF",
-              "cornerRadius": 26,
+              "fill": "#fff8e7",
+              "cornerRadius": 32,
               "layout": "none",
               "children": [
                 {
@@ -203,8 +224,8 @@
                   "name": "Logo Speech Bubble",
                   "width": 44,
                   "height": 28,
-                  "fill": "#F5F2ED",
-                  "cornerRadius": 12,
+                  "fill": "#eef7d9",
+                  "cornerRadius": 18,
                   "layout": "none",
                   "children": [
                     {
@@ -215,7 +236,7 @@
                       "name": "Check Mark 1",
                       "width": 8,
                       "height": 4,
-                      "fill": "#A881C2",
+                      "fill": "#7fb069",
                       "cornerRadius": 9999
                     },
                     {
@@ -226,7 +247,7 @@
                       "name": "Check Mark 2",
                       "width": 14,
                       "height": 4,
-                      "fill": "#A881C2",
+                      "fill": "#7fb069",
                       "cornerRadius": 9999
                     }
                   ]
@@ -239,8 +260,8 @@
                   "name": "Cat Ear Left",
                   "width": 22,
                   "height": 22,
-                  "fill": "#F8C9D4",
-                  "cornerRadius": 6
+                  "fill": "#f3c987",
+                  "cornerRadius": 10
                 },
                 {
                   "type": "frame",
@@ -250,8 +271,8 @@
                   "name": "Cat Ear Right",
                   "width": 22,
                   "height": 22,
-                  "fill": "#F8C9D4",
-                  "cornerRadius": 6
+                  "fill": "#f3c987",
+                  "cornerRadius": 10
                 },
                 {
                   "type": "frame",
@@ -261,8 +282,8 @@
                   "name": "Cat Head",
                   "width": 66,
                   "height": 54,
-                  "fill": "#FFFFFF",
-                  "cornerRadius": 28,
+                  "fill": "#fff8e7",
+                  "cornerRadius": 34,
                   "layout": "none",
                   "children": [
                     {
@@ -273,8 +294,8 @@
                       "name": "Cat Gray Patch",
                       "width": 30,
                       "height": 24,
-                      "fill": "#D8D0C7",
-                      "cornerRadius": 16
+                      "fill": "#d8c29a",
+                      "cornerRadius": 24
                     },
                     {
                       "type": "frame",
@@ -284,7 +305,7 @@
                       "name": "Cat Eye Left",
                       "width": 7,
                       "height": 10,
-                      "fill": "#1A1A1A",
+                      "fill": "#5c4b36",
                       "cornerRadius": 9999
                     },
                     {
@@ -295,7 +316,7 @@
                       "name": "Cat Eye Right",
                       "width": 7,
                       "height": 10,
-                      "fill": "#1A1A1A",
+                      "fill": "#5c4b36",
                       "cornerRadius": 9999
                     },
                     {
@@ -306,7 +327,7 @@
                       "name": "Cat Nose",
                       "width": 6,
                       "height": 5,
-                      "fill": "#1A1A1A",
+                      "fill": "#5c4b36",
                       "cornerRadius": 9999
                     },
                     {
@@ -317,7 +338,7 @@
                       "name": "Cat Cheek Left",
                       "width": 12,
                       "height": 6,
-                      "fill": "#F8D7DD",
+                      "fill": "#f3d6a1",
                       "cornerRadius": 9999
                     },
                     {
@@ -328,7 +349,7 @@
                       "name": "Cat Cheek Right",
                       "width": 12,
                       "height": 6,
-                      "fill": "#F8D7DD",
+                      "fill": "#f3d6a1",
                       "cornerRadius": 9999
                     }
                   ]
@@ -341,8 +362,8 @@
                   "name": "Laptop",
                   "width": 70,
                   "height": 30,
-                  "fill": "#E8E5E1",
-                  "cornerRadius": 6,
+                  "fill": "#eadfbe",
+                  "cornerRadius": 10,
                   "layout": "none",
                   "children": [
                     {
@@ -353,7 +374,7 @@
                       "name": "Laptop Paw",
                       "width": 10,
                       "height": 8,
-                      "fill": "#A881C2",
+                      "fill": "#7fb069",
                       "cornerRadius": 9999
                     }
                   ]
@@ -366,7 +387,7 @@
               "x": 312,
               "y": 188,
               "name": "Hero Main Title",
-              "fill": "#1A1A1A",
+              "fill": "#5c4b36",
               "textGrowth": "fixed-width-height",
               "width": 720,
               "height": 72,
@@ -374,7 +395,7 @@
               "textAlign": "center",
               "fontFamily": "Geist",
               "fontSize": 60,
-              "fontWeight": "900"
+              "fontWeight": "800"
             },
             {
               "type": "text",
@@ -382,7 +403,7 @@
               "x": 422,
               "y": 278,
               "name": "Hero Subtitle",
-              "fill": "#666666",
+              "fill": "#8a7a5f",
               "textGrowth": "fixed-width-height",
               "width": 500,
               "height": 52,
@@ -400,8 +421,8 @@
               "name": "Hero Start Button",
               "width": 80,
               "height": 52,
-              "fill": "#6F55D8",
-              "cornerRadius": 18,
+              "fill": "#8ec07c",
+              "cornerRadius": 24,
               "layout": "none",
               "children": [
                 {
@@ -410,7 +431,7 @@
                   "x": 20,
                   "y": 16,
                   "name": "Hero Start Text",
-                  "fill": "#FFFFFF",
+                  "fill": "#fff8e7",
                   "textGrowth": "fixed-width-height",
                   "width": 40,
                   "height": 20,
@@ -432,8 +453,18 @@
           "name": "Template Carousel Panel",
           "width": 1344,
           "height": 356,
-          "fill": "#FFFFFF",
-          "cornerRadius": 34,
+          "fill": "#fff8e7",
+          "cornerRadius": 36,
+          "effect": {
+            "type": "shadow",
+            "shadowType": "outer",
+            "color": "#d58adf20",
+            "offset": {
+              "x": 0,
+              "y": 14
+            },
+            "blur": 36
+          },
           "layout": "none",
           "children": [
             {
@@ -442,14 +473,14 @@
               "x": 40,
               "y": 34,
               "name": "Template Title",
-              "fill": "#1A1A1A",
+              "fill": "#5c4b36",
               "textGrowth": "fixed-width-height",
               "width": 440,
               "height": 38,
               "content": "Choose a resume template",
               "fontFamily": "Geist",
               "fontSize": 30,
-              "fontWeight": "900"
+              "fontWeight": "800"
             },
             {
               "type": "text",
@@ -457,7 +488,7 @@
               "x": 42,
               "y": 78,
               "name": "Template Hint",
-              "fill": "#666666",
+              "fill": "#8a7a5f",
               "textGrowth": "fixed-width-height",
               "width": 520,
               "height": 22,
@@ -474,7 +505,7 @@
               "name": "Hover Pause Pill",
               "width": 128,
               "height": 30,
-              "fill": "#F2ECFF",
+              "fill": "#e8f4c9",
               "cornerRadius": 9999,
               "layout": "none",
               "children": [
@@ -486,7 +517,7 @@
                   "name": "Pause Dot",
                   "width": 6,
                   "height": 6,
-                  "fill": "#6F55D8",
+                  "fill": "#8ec07c",
                   "cornerRadius": 9999
                 },
                 {
@@ -495,7 +526,7 @@
                   "x": 30,
                   "y": 7,
                   "name": "Pause Text",
-                  "fill": "#6F55D8",
+                  "fill": "#7fb069",
                   "textGrowth": "fixed-width-height",
                   "width": 84,
                   "height": 16,
@@ -514,8 +545,8 @@
               "name": "PDF 01 Classic",
               "width": 206,
               "height": 166,
-              "fill": "#FFFFFF",
-              "cornerRadius": 22,
+              "fill": "#fff8e7",
+              "cornerRadius": 24,
               "layout": "none",
               "children": [
                 {
@@ -526,8 +557,8 @@
                   "name": "Classic Preview",
                   "width": 162,
                   "height": 84,
-                  "fill": "#F4F0FF",
-                  "cornerRadius": 16,
+                  "fill": "#fff6d6",
+                  "cornerRadius": 24,
                   "layout": "none",
                   "children": [
                     {
@@ -538,7 +569,7 @@
                       "name": "Line",
                       "width": 72,
                       "height": 9,
-                      "fill": "#6F55D8",
+                      "fill": "#8ec07c",
                       "cornerRadius": 9999
                     },
                     {
@@ -549,7 +580,7 @@
                       "name": "Line",
                       "width": 112,
                       "height": 6,
-                      "fill": "#CFC5F4",
+                      "fill": "#f6c77a",
                       "cornerRadius": 9999
                     },
                     {
@@ -560,7 +591,7 @@
                       "name": "Line",
                       "width": 92,
                       "height": 6,
-                      "fill": "#DCD5F8",
+                      "fill": "#f5ddb0",
                       "cornerRadius": 9999
                     }
                   ]
@@ -571,7 +602,7 @@
                   "x": 22,
                   "y": 118,
                   "name": "PDF No",
-                  "fill": "#CFC5F4",
+                  "fill": "#f6c77a",
                   "textGrowth": "fixed-width-height",
                   "width": 60,
                   "height": 16,
@@ -586,14 +617,14 @@
                   "x": 22,
                   "y": 138,
                   "name": "Classic",
-                  "fill": "#1A1A1A",
+                  "fill": "#5c4b36",
                   "textGrowth": "fixed-width-height",
                   "width": 90,
                   "height": 24,
                   "content": "Classic",
                   "fontFamily": "Inter",
                   "fontSize": 18,
-                  "fontWeight": "900"
+                  "fontWeight": "800"
                 }
               ]
             },
@@ -605,8 +636,8 @@
               "name": "PDF 02 Cute",
               "width": 218,
               "height": 178,
-              "fill": "#FFFFFF",
-              "cornerRadius": 22,
+              "fill": "#fff8e7",
+              "cornerRadius": 24,
               "layout": "none",
               "children": [
                 {
@@ -617,8 +648,8 @@
                   "name": "Cute Preview",
                   "width": 174,
                   "height": 92,
-                  "fill": "#F7D1E6",
-                  "cornerRadius": 16,
+                  "fill": "#f5d29b",
+                  "cornerRadius": 24,
                   "layout": "none",
                   "children": [
                     {
@@ -629,7 +660,7 @@
                       "name": "Cute Dot",
                       "width": 34,
                       "height": 34,
-                      "fill": "#FFF1F8",
+                      "fill": "#fff8e7",
                       "cornerRadius": 9999
                     },
                     {
@@ -640,7 +671,7 @@
                       "name": "Line",
                       "width": 122,
                       "height": 7,
-                      "fill": "#FFFFFF",
+                      "fill": "#fff8e7",
                       "cornerRadius": 9999
                     },
                     {
@@ -651,7 +682,7 @@
                       "name": "Line",
                       "width": 94,
                       "height": 6,
-                      "fill": "#FFFFFF",
+                      "fill": "#fff8e7",
                       "cornerRadius": 9999
                     }
                   ]
@@ -662,7 +693,7 @@
                   "x": 22,
                   "y": 126,
                   "name": "PDF No",
-                  "fill": "#B76296",
+                  "fill": "#9b6f3b",
                   "textGrowth": "fixed-width-height",
                   "width": 60,
                   "height": 16,
@@ -677,14 +708,14 @@
                   "x": 22,
                   "y": 146,
                   "name": "Cute",
-                  "fill": "#1A1A1A",
+                  "fill": "#5c4b36",
                   "textGrowth": "fixed-width-height",
                   "width": 70,
                   "height": 24,
                   "content": "Cute",
                   "fontFamily": "Inter",
                   "fontSize": 18,
-                  "fontWeight": "900"
+                  "fontWeight": "800"
                 }
               ]
             },
@@ -696,8 +727,8 @@
               "name": "PDF 03 Tech Active Border",
               "width": 244,
               "height": 204,
-              "fill": "#6F55D8",
-              "cornerRadius": 26,
+              "fill": "#8ec07c",
+              "cornerRadius": 32,
               "layout": "none",
               "children": [
                 {
@@ -708,8 +739,8 @@
                   "name": "PDF 03 Tech Active",
                   "width": 240,
                   "height": 200,
-                  "fill": "#FFFFFF",
-                  "cornerRadius": 24,
+                  "fill": "#fff8e7",
+                  "cornerRadius": 26,
                   "layout": "none",
                   "children": [
                     {
@@ -720,8 +751,8 @@
                       "name": "Tech Preview",
                       "width": 192,
                       "height": 106,
-                      "fill": "#12121B",
-                      "cornerRadius": 16,
+                      "fill": "#6a7d4f",
+                      "cornerRadius": 24,
                       "layout": "none",
                       "children": [
                         {
@@ -732,7 +763,7 @@
                           "name": "Code Purple",
                           "width": 86,
                           "height": 8,
-                          "fill": "#8D6BFF",
+                          "fill": "#9dcf7d",
                           "cornerRadius": 9999
                         },
                         {
@@ -743,7 +774,7 @@
                           "name": "Code Green",
                           "width": 128,
                           "height": 6,
-                          "fill": "#9BE0C6",
+                          "fill": "#9fd8aa",
                           "cornerRadius": 9999
                         },
                         {
@@ -754,7 +785,7 @@
                           "name": "Code Blue",
                           "width": 110,
                           "height": 6,
-                          "fill": "#B5D7FF",
+                          "fill": "#a9d6d0",
                           "cornerRadius": 9999
                         },
                         {
@@ -765,7 +796,7 @@
                           "name": "Paused Label",
                           "width": 94,
                           "height": 24,
-                          "fill": "#FFFFFF",
+                          "fill": "#fff8e7",
                           "cornerRadius": 9999,
                           "layout": "none",
                           "children": [
@@ -775,7 +806,7 @@
                               "x": 12,
                               "y": 6,
                               "name": "Paused Text",
-                              "fill": "#6F55D8",
+                              "fill": "#7fb069",
                               "textGrowth": "fixed-width-height",
                               "width": 70,
                               "height": 12,
@@ -794,7 +825,7 @@
                       "x": 24,
                       "y": 144,
                       "name": "PDF No",
-                      "fill": "#8D6BFF",
+                      "fill": "#7fb069",
                       "textGrowth": "fixed-width-height",
                       "width": 60,
                       "height": 16,
@@ -809,14 +840,14 @@
                       "x": 24,
                       "y": 166,
                       "name": "Tech",
-                      "fill": "#1A1A1A",
+                      "fill": "#5c4b36",
                       "textGrowth": "fixed-width-height",
                       "width": 70,
                       "height": 24,
                       "content": "Tech",
                       "fontFamily": "Inter",
                       "fontSize": 18,
-                      "fontWeight": "900"
+                      "fontWeight": "800"
                     }
                   ]
                 }
@@ -830,8 +861,8 @@
               "name": "PDF 04 Simple",
               "width": 218,
               "height": 178,
-              "fill": "#FFFFFF",
-              "cornerRadius": 22,
+              "fill": "#fff8e7",
+              "cornerRadius": 24,
               "layout": "none",
               "children": [
                 {
@@ -842,8 +873,8 @@
                   "name": "Simple Preview",
                   "width": 174,
                   "height": 92,
-                  "fill": "#DDF5EA",
-                  "cornerRadius": 16,
+                  "fill": "#edf8d7",
+                  "cornerRadius": 24,
                   "layout": "none",
                   "children": [
                     {
@@ -854,7 +885,7 @@
                       "name": "Line",
                       "width": 118,
                       "height": 7,
-                      "fill": "#FFFFFF",
+                      "fill": "#fff8e7",
                       "cornerRadius": 9999
                     },
                     {
@@ -865,7 +896,7 @@
                       "name": "Line",
                       "width": 118,
                       "height": 7,
-                      "fill": "#FFFFFF",
+                      "fill": "#fff8e7",
                       "cornerRadius": 9999
                     }
                   ]
@@ -876,7 +907,7 @@
                   "x": 22,
                   "y": 126,
                   "name": "PDF No",
-                  "fill": "#3FA17A",
+                  "fill": "#5fa567",
                   "textGrowth": "fixed-width-height",
                   "width": 60,
                   "height": 16,
@@ -891,14 +922,14 @@
                   "x": 22,
                   "y": 146,
                   "name": "Simple",
-                  "fill": "#1A1A1A",
+                  "fill": "#5c4b36",
                   "textGrowth": "fixed-width-height",
                   "width": 80,
                   "height": 24,
                   "content": "Simple",
                   "fontFamily": "Inter",
                   "fontSize": 18,
-                  "fontWeight": "900"
+                  "fontWeight": "800"
                 }
               ]
             },
@@ -910,8 +941,8 @@
               "name": "PDF 05 Modern",
               "width": 206,
               "height": 166,
-              "fill": "#FFFFFF",
-              "cornerRadius": 22,
+              "fill": "#fff8e7",
+              "cornerRadius": 24,
               "layout": "none",
               "children": [
                 {
@@ -922,8 +953,8 @@
                   "name": "Modern Preview",
                   "width": 162,
                   "height": 84,
-                  "fill": "#DBECFF",
-                  "cornerRadius": 16,
+                  "fill": "#edf5e7",
+                  "cornerRadius": 24,
                   "layout": "none",
                   "children": [
                     {
@@ -934,8 +965,8 @@
                       "name": "Avatar",
                       "width": 54,
                       "height": 54,
-                      "fill": "#F7FBFF",
-                      "cornerRadius": 16
+                      "fill": "#fff8e7",
+                      "cornerRadius": 24
                     },
                     {
                       "type": "frame",
@@ -945,7 +976,7 @@
                       "name": "Line",
                       "width": 58,
                       "height": 8,
-                      "fill": "#FFFFFF",
+                      "fill": "#fff8e7",
                       "cornerRadius": 9999
                     }
                   ]
@@ -956,7 +987,7 @@
                   "x": 22,
                   "y": 118,
                   "name": "PDF No",
-                  "fill": "#5A92C7",
+                  "fill": "#639b91",
                   "textGrowth": "fixed-width-height",
                   "width": 60,
                   "height": 16,
@@ -971,14 +1002,14 @@
                   "x": 22,
                   "y": 138,
                   "name": "Modern",
-                  "fill": "#1A1A1A",
+                  "fill": "#5c4b36",
                   "textGrowth": "fixed-width-height",
                   "width": 90,
                   "height": 24,
                   "content": "Modern",
                   "fontFamily": "Inter",
                   "fontSize": 18,
-                  "fontWeight": "900"
+                  "fontWeight": "800"
                 }
               ]
             },
@@ -988,7 +1019,7 @@
               "x": 528,
               "y": 336,
               "name": "Template Footer Hint",
-              "fill": "#1A1A1A",
+              "fill": "#5c4b36",
               "textGrowth": "fixed-width-height",
               "width": 288,
               "height": 18,
@@ -1006,7 +1037,7 @@
               "name": "Carousel Motion Track",
               "width": 400,
               "height": 4,
-              "fill": "#F2ECFF",
+              "fill": "#e8f4c9",
               "cornerRadius": 9999
             },
             {
@@ -1017,7 +1048,7 @@
               "name": "Motion Dot 1",
               "width": 12,
               "height": 12,
-              "fill": "#D8C8FF",
+              "fill": "#f6d69a",
               "cornerRadius": 9999
             },
             {
@@ -1028,7 +1059,7 @@
               "name": "Motion Dot 2",
               "width": 12,
               "height": 12,
-              "fill": "#A881C2",
+              "fill": "#7fb069",
               "cornerRadius": 9999
             },
             {
@@ -1039,7 +1070,7 @@
               "name": "Motion Dot 3",
               "width": 12,
               "height": 12,
-              "fill": "#A881C2",
+              "fill": "#7fb069",
               "cornerRadius": 9999
             },
             {
@@ -1050,7 +1081,7 @@
               "name": "Motion Dot 4",
               "width": 12,
               "height": 12,
-              "fill": "#D8C8FF",
+              "fill": "#f6d69a",
               "cornerRadius": 9999
             },
             {
@@ -1059,7 +1090,7 @@
               "x": 438,
               "y": 314,
               "name": "Flow Left Arrow",
-              "fill": "#A881C2",
+              "fill": "#7fb069",
               "textGrowth": "fixed-width-height",
               "width": 28,
               "height": 22,
@@ -1075,7 +1106,7 @@
               "x": 878,
               "y": 314,
               "name": "Flow Right Arrow",
-              "fill": "#A881C2",
+              "fill": "#7fb069",
               "textGrowth": "fixed-width-height",
               "width": 28,
               "height": 22,
@@ -1086,6 +1117,76 @@
               "fontWeight": "800"
             }
           ]
+        },
+        {
+          "type": "ellipse",
+          "id": "cbzRv",
+          "x": 170,
+          "y": 160,
+          "name": "Cute Dot 1",
+          "fill": "#f6d69a",
+          "width": 16,
+          "height": 16
+        },
+        {
+          "type": "ellipse",
+          "id": "qd46k",
+          "x": 1238,
+          "y": 172,
+          "name": "Cute Dot 2",
+          "fill": "#a9d6d0",
+          "width": 12,
+          "height": 12
+        },
+        {
+          "type": "polygon",
+          "polygonCount": 4,
+          "cornerRadius": 4,
+          "id": "K8FsVY",
+          "x": 238,
+          "y": 488,
+          "name": "Cute Star 1",
+          "rotation": 45,
+          "fill": "#f0b85a",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "type": "polygon",
+          "polygonCount": 4,
+          "cornerRadius": 4,
+          "id": "hTcU4",
+          "x": 1176,
+          "y": 498,
+          "name": "Cute Star 2",
+          "rotation": 45,
+          "fill": "#9fd8aa",
+          "width": 18,
+          "height": 18
+        },
+        {
+          "type": "rectangle",
+          "cornerRadius": 9999,
+          "id": "KF5HW",
+          "x": 1092,
+          "y": 236,
+          "name": "Cute Sprinkle 1",
+          "rotation": 18,
+          "fill": "#f6c77a",
+          "width": 38,
+          "height": 10
+        },
+        {
+          "type": "rectangle",
+          "cornerRadius": 9999,
+          "id": "l4gBk9",
+          "x": 276,
+          "y": 254,
+          "name": "Cute Sprinkle 2",
+          "rotation": -18,
+          "fill": "#9dcf7d",
+          "width": 34,
+          "height": 9
         }
       ]
     },
@@ -1097,7 +1198,7 @@
       "name": "02 Resume Editor",
       "width": 1440,
       "height": 1024,
-      "fill": "#FCFAF7",
+      "fill": "#f6f1d7",
       "layout": "none",
       "children": [
         {
@@ -1108,8 +1209,8 @@
           "name": "Resume Top Navigation",
           "width": 1344,
           "height": 84,
-          "fill": "#F5F2ED",
-          "cornerRadius": 28,
+          "fill": "#eef7d9",
+          "cornerRadius": 34,
           "layout": "none",
           "children": [
             {
@@ -1120,8 +1221,8 @@
               "name": "Logo",
               "width": 40,
               "height": 40,
-              "fill": "#FFFFFF",
-              "cornerRadius": 12,
+              "fill": "#fff8e7",
+              "cornerRadius": 18,
               "layout": "none",
               "children": [
                 {
@@ -1132,8 +1233,8 @@
                   "name": "Logo Ear Left",
                   "width": 8,
                   "height": 8,
-                  "fill": "#F8C9D4",
-                  "cornerRadius": 3
+                  "fill": "#f3c987",
+                  "cornerRadius": 7
                 },
                 {
                   "type": "frame",
@@ -1143,8 +1244,8 @@
                   "name": "Logo Ear Right",
                   "width": 8,
                   "height": 8,
-                  "fill": "#F8C9D4",
-                  "cornerRadius": 3
+                  "fill": "#f3c987",
+                  "cornerRadius": 7
                 },
                 {
                   "type": "frame",
@@ -1154,7 +1255,7 @@
                   "name": "Logo Face",
                   "width": 22,
                   "height": 18,
-                  "fill": "#F5F2ED",
+                  "fill": "#eef7d9",
                   "cornerRadius": 9999,
                   "layout": "none",
                   "children": [
@@ -1166,7 +1267,7 @@
                       "name": "Eye Left",
                       "width": 3,
                       "height": 4,
-                      "fill": "#1A1A1A",
+                      "fill": "#5c4b36",
                       "cornerRadius": 9999
                     },
                     {
@@ -1177,7 +1278,7 @@
                       "name": "Eye Right",
                       "width": 3,
                       "height": 4,
-                      "fill": "#1A1A1A",
+                      "fill": "#5c4b36",
                       "cornerRadius": 9999
                     }
                   ]
@@ -1190,7 +1291,7 @@
               "x": 80,
               "y": 24,
               "name": "Brand",
-              "fill": "#1A1A1A",
+              "fill": "#5c4b36",
               "textGrowth": "fixed-width-height",
               "width": 220,
               "height": 32,
@@ -1207,7 +1308,7 @@
               "name": "Active Resume Pill",
               "width": 124,
               "height": 48,
-              "fill": "#FFFFFF",
+              "fill": "#fff8e7",
               "cornerRadius": 9999,
               "layout": "none",
               "children": [
@@ -1217,7 +1318,7 @@
                   "x": 27,
                   "y": 13,
                   "name": "Resume Nav Text",
-                  "fill": "#1A1A1A",
+                  "fill": "#5c4b36",
                   "textGrowth": "fixed-width-height",
                   "width": 70,
                   "height": 22,
@@ -1235,7 +1336,7 @@
               "x": 850,
               "y": 31,
               "name": "Website Nav",
-              "fill": "#666666",
+              "fill": "#8a7a5f",
               "textGrowth": "fixed-width-height",
               "width": 90,
               "height": 22,
@@ -1250,7 +1351,7 @@
               "x": 966,
               "y": 31,
               "name": "Settings Nav",
-              "fill": "#666666",
+              "fill": "#8a7a5f",
               "textGrowth": "fixed-width-height",
               "width": 90,
               "height": 22,
@@ -1267,7 +1368,7 @@
               "name": "Preview Button",
               "width": 112,
               "height": 48,
-              "fill": "#FCFAF7",
+              "fill": "#f6f1d7",
               "cornerRadius": 9999,
               "layout": "none",
               "children": [
@@ -1277,7 +1378,7 @@
                   "x": 29,
                   "y": 13,
                   "name": "Preview Text",
-                  "fill": "#666666",
+                  "fill": "#8a7a5f",
                   "textGrowth": "fixed-width-height",
                   "width": 58,
                   "height": 22,
@@ -1297,7 +1398,7 @@
               "name": "Export Button",
               "width": 112,
               "height": 48,
-              "fill": "#1A1A1A",
+              "fill": "#5c4b36",
               "cornerRadius": 9999,
               "layout": "none",
               "children": [
@@ -1307,7 +1408,7 @@
                   "x": 32,
                   "y": 13,
                   "name": "Export Text",
-                  "fill": "#FFFFFF",
+                  "fill": "#fff8e7",
                   "textGrowth": "fixed-width-height",
                   "width": 52,
                   "height": 22,
@@ -1329,8 +1430,18 @@
           "name": "Resume Form Sidebar",
           "width": 300,
           "height": 836,
-          "fill": "#F5F2ED",
-          "cornerRadius": 32,
+          "fill": "#eef7d9",
+          "cornerRadius": 34,
+          "effect": {
+            "type": "shadow",
+            "shadowType": "outer",
+            "color": "#d58adf18",
+            "offset": {
+              "x": 0,
+              "y": 12
+            },
+            "blur": 32
+          },
           "layout": "none",
           "children": [
             {
@@ -1339,7 +1450,7 @@
               "x": 28,
               "y": 30,
               "name": "Sidebar Title",
-              "fill": "#1A1A1A",
+              "fill": "#5c4b36",
               "textGrowth": "fixed-width-height",
               "width": 170,
               "height": 28,
@@ -1356,8 +1467,8 @@
               "name": "Basic Info Active",
               "width": 252,
               "height": 56,
-              "fill": "#FFFFFF",
-              "cornerRadius": 18,
+              "fill": "#fff8e7",
+              "cornerRadius": 24,
               "layout": "none",
               "children": [
                 {
@@ -1366,7 +1477,7 @@
                   "x": 20,
                   "y": 17,
                   "name": "Basic Info Text",
-                  "fill": "#1A1A1A",
+                  "fill": "#5c4b36",
                   "textGrowth": "fixed-width-height",
                   "width": 120,
                   "height": 22,
@@ -1383,7 +1494,7 @@
               "x": 44,
               "y": 164,
               "name": "Work Section",
-              "fill": "#666666",
+              "fill": "#8a7a5f",
               "textGrowth": "fixed-width-height",
               "width": 120,
               "height": 24,
@@ -1398,7 +1509,7 @@
               "x": 44,
               "y": 216,
               "name": "Project Section",
-              "fill": "#666666",
+              "fill": "#8a7a5f",
               "textGrowth": "fixed-width-height",
               "width": 120,
               "height": 24,
@@ -1413,7 +1524,7 @@
               "x": 44,
               "y": 268,
               "name": "Education Section",
-              "fill": "#666666",
+              "fill": "#8a7a5f",
               "textGrowth": "fixed-width-height",
               "width": 120,
               "height": 24,
@@ -1428,7 +1539,7 @@
               "x": 44,
               "y": 320,
               "name": "Skills Section",
-              "fill": "#666666",
+              "fill": "#8a7a5f",
               "textGrowth": "fixed-width-height",
               "width": 100,
               "height": 24,
@@ -1445,8 +1556,8 @@
               "name": "Add Block",
               "width": 252,
               "height": 62,
-              "fill": "#A881C2",
-              "cornerRadius": 22,
+              "fill": "#7fb069",
+              "cornerRadius": 24,
               "layout": "none",
               "children": [
                 {
@@ -1455,7 +1566,7 @@
                   "x": 88,
                   "y": 20,
                   "name": "Add Text",
-                  "fill": "#FFFFFF",
+                  "fill": "#fff8e7",
                   "textGrowth": "fixed-width-height",
                   "width": 76,
                   "height": 22,
@@ -1476,8 +1587,18 @@
           "name": "PDF Preview Zone",
           "width": 620,
           "height": 836,
-          "fill": "#F5F2ED",
-          "cornerRadius": 32,
+          "fill": "#eef7d9",
+          "cornerRadius": 34,
+          "effect": {
+            "type": "shadow",
+            "shadowType": "outer",
+            "color": "#d58adf18",
+            "offset": {
+              "x": 0,
+              "y": 12
+            },
+            "blur": 32
+          },
           "layout": "none",
           "children": [
             {
@@ -1486,7 +1607,7 @@
               "x": 36,
               "y": 30,
               "name": "Preview Title",
-              "fill": "#1A1A1A",
+              "fill": "#5c4b36",
               "textGrowth": "fixed-width-height",
               "width": 140,
               "height": 28,
@@ -1503,8 +1624,8 @@
               "name": "Resume Paper",
               "width": 384,
               "height": 600,
-              "fill": "#FFFFFF",
-              "cornerRadius": 18,
+              "fill": "#fff8e7",
+              "cornerRadius": 24,
               "layout": "none",
               "children": [
                 {
@@ -1513,7 +1634,7 @@
                   "x": 42,
                   "y": 42,
                   "name": "Candidate Name",
-                  "fill": "#1A1A1A",
+                  "fill": "#5c4b36",
                   "textGrowth": "fixed-width-height",
                   "width": 180,
                   "height": 34,
@@ -1528,7 +1649,7 @@
                   "x": 42,
                   "y": 82,
                   "name": "Candidate Role",
-                  "fill": "#A881C2",
+                  "fill": "#7fb069",
                   "textGrowth": "fixed-width-height",
                   "width": 240,
                   "height": 22,
@@ -1545,7 +1666,7 @@
                   "name": "Summary Line 1",
                   "width": 300,
                   "height": 7,
-                  "fill": "#D8D0C7",
+                  "fill": "#d8c29a",
                   "cornerRadius": 9999
                 },
                 {
@@ -1556,7 +1677,7 @@
                   "name": "Summary Line 2",
                   "width": 250,
                   "height": 7,
-                  "fill": "#D8D0C7",
+                  "fill": "#d8c29a",
                   "cornerRadius": 9999
                 },
                 {
@@ -1567,7 +1688,7 @@
                   "name": "Section Mark",
                   "width": 80,
                   "height": 10,
-                  "fill": "#1A1A1A",
+                  "fill": "#5c4b36",
                   "cornerRadius": 9999
                 },
                 {
@@ -1578,7 +1699,7 @@
                   "name": "Experience Line 1",
                   "width": 300,
                   "height": 7,
-                  "fill": "#D8D0C7",
+                  "fill": "#d8c29a",
                   "cornerRadius": 9999
                 },
                 {
@@ -1589,7 +1710,7 @@
                   "name": "Experience Line 2",
                   "width": 276,
                   "height": 7,
-                  "fill": "#D8D0C7",
+                  "fill": "#d8c29a",
                   "cornerRadius": 9999
                 },
                 {
@@ -1600,7 +1721,7 @@
                   "name": "Experience Line 3",
                   "width": 300,
                   "height": 7,
-                  "fill": "#D8D0C7",
+                  "fill": "#d8c29a",
                   "cornerRadius": 9999
                 }
               ]
@@ -1615,8 +1736,18 @@
           "name": "AI Assistant Panel",
           "width": 360,
           "height": 836,
-          "fill": "#F5F2ED",
-          "cornerRadius": 32,
+          "fill": "#eef7d9",
+          "cornerRadius": 34,
+          "effect": {
+            "type": "shadow",
+            "shadowType": "outer",
+            "color": "#d58adf18",
+            "offset": {
+              "x": 0,
+              "y": 12
+            },
+            "blur": 32
+          },
           "layout": "none",
           "children": [
             {
@@ -1625,7 +1756,7 @@
               "x": 30,
               "y": 30,
               "name": "AI Title",
-              "fill": "#1A1A1A",
+              "fill": "#5c4b36",
               "textGrowth": "fixed-width-height",
               "width": 170,
               "height": 28,
@@ -1642,8 +1773,8 @@
               "name": "AI Suggest 1",
               "width": 304,
               "height": 72,
-              "fill": "#FFFFFF",
-              "cornerRadius": 22,
+              "fill": "#fff8e7",
+              "cornerRadius": 24,
               "layout": "none",
               "children": [
                 {
@@ -1652,7 +1783,7 @@
                   "x": 22,
                   "y": 24,
                   "name": "AI Suggest Text 1",
-                  "fill": "#1A1A1A",
+                  "fill": "#5c4b36",
                   "textGrowth": "fixed-width-height",
                   "width": 180,
                   "height": 24,
@@ -1671,8 +1802,8 @@
               "name": "AI Suggest 2",
               "width": 304,
               "height": 72,
-              "fill": "#FFFFFF",
-              "cornerRadius": 22,
+              "fill": "#fff8e7",
+              "cornerRadius": 24,
               "layout": "none",
               "children": [
                 {
@@ -1681,7 +1812,7 @@
                   "x": 22,
                   "y": 24,
                   "name": "AI Suggest Text 2",
-                  "fill": "#1A1A1A",
+                  "fill": "#5c4b36",
                   "textGrowth": "fixed-width-height",
                   "width": 180,
                   "height": 24,
@@ -1700,8 +1831,8 @@
               "name": "AI Suggest 3",
               "width": 304,
               "height": 72,
-              "fill": "#FFFFFF",
-              "cornerRadius": 22,
+              "fill": "#fff8e7",
+              "cornerRadius": 24,
               "layout": "none",
               "children": [
                 {
@@ -1710,7 +1841,7 @@
                   "x": 22,
                   "y": 24,
                   "name": "AI Suggest Text 3",
-                  "fill": "#1A1A1A",
+                  "fill": "#5c4b36",
                   "textGrowth": "fixed-width-height",
                   "width": 180,
                   "height": 24,
@@ -1729,8 +1860,8 @@
               "name": "Prompt Input",
               "width": 304,
               "height": 64,
-              "fill": "#FCFAF7",
-              "cornerRadius": 24,
+              "fill": "#f6f1d7",
+              "cornerRadius": 26,
               "layout": "none",
               "children": [
                 {
@@ -1739,7 +1870,7 @@
                   "x": 22,
                   "y": 22,
                   "name": "Prompt Placeholder",
-                  "fill": "#999999",
+                  "fill": "#a49475",
                   "textGrowth": "fixed-width-height",
                   "width": 190,
                   "height": 20,
@@ -1751,6 +1882,29 @@
               ]
             }
           ]
+        },
+        {
+          "type": "ellipse",
+          "id": "QEaWs",
+          "x": 324,
+          "y": 126,
+          "name": "Cute Dot Resume 1",
+          "fill": "#f6d69a",
+          "width": 14,
+          "height": 14
+        },
+        {
+          "type": "polygon",
+          "polygonCount": 4,
+          "cornerRadius": 4,
+          "id": "wgQOa",
+          "x": 1348,
+          "y": 126,
+          "name": "Cute Star Resume 1",
+          "rotation": 45,
+          "fill": "#f0b85a",
+          "width": 18,
+          "height": 18
         }
       ]
     },
@@ -1762,7 +1916,7 @@
       "name": "03 Website Builder",
       "width": 1440,
       "height": 1024,
-      "fill": "#FCFAF7",
+      "fill": "#f6f1d7",
       "layout": "none",
       "children": [
         {
@@ -1773,8 +1927,8 @@
           "name": "Website Top Navigation",
           "width": 1344,
           "height": 84,
-          "fill": "#F5F2ED",
-          "cornerRadius": 28,
+          "fill": "#eef7d9",
+          "cornerRadius": 34,
           "layout": "none",
           "children": [
             {
@@ -1785,8 +1939,8 @@
               "name": "Logo",
               "width": 40,
               "height": 40,
-              "fill": "#FFFFFF",
-              "cornerRadius": 12,
+              "fill": "#fff8e7",
+              "cornerRadius": 18,
               "layout": "none",
               "children": [
                 {
@@ -1797,8 +1951,8 @@
                   "name": "Logo Ear Left",
                   "width": 8,
                   "height": 8,
-                  "fill": "#F8C9D4",
-                  "cornerRadius": 3
+                  "fill": "#f3c987",
+                  "cornerRadius": 7
                 },
                 {
                   "type": "frame",
@@ -1808,8 +1962,8 @@
                   "name": "Logo Ear Right",
                   "width": 8,
                   "height": 8,
-                  "fill": "#F8C9D4",
-                  "cornerRadius": 3
+                  "fill": "#f3c987",
+                  "cornerRadius": 7
                 },
                 {
                   "type": "frame",
@@ -1819,7 +1973,7 @@
                   "name": "Logo Face",
                   "width": 22,
                   "height": 18,
-                  "fill": "#F5F2ED",
+                  "fill": "#eef7d9",
                   "cornerRadius": 9999,
                   "layout": "none",
                   "children": [
@@ -1831,7 +1985,7 @@
                       "name": "Eye Left",
                       "width": 3,
                       "height": 4,
-                      "fill": "#1A1A1A",
+                      "fill": "#5c4b36",
                       "cornerRadius": 9999
                     },
                     {
@@ -1842,7 +1996,7 @@
                       "name": "Eye Right",
                       "width": 3,
                       "height": 4,
-                      "fill": "#1A1A1A",
+                      "fill": "#5c4b36",
                       "cornerRadius": 9999
                     }
                   ]
@@ -1855,7 +2009,7 @@
               "x": 80,
               "y": 24,
               "name": "Brand",
-              "fill": "#1A1A1A",
+              "fill": "#5c4b36",
               "textGrowth": "fixed-width-height",
               "width": 220,
               "height": 32,
@@ -1870,7 +2024,7 @@
               "x": 736,
               "y": 31,
               "name": "Resume Nav",
-              "fill": "#666666",
+              "fill": "#8a7a5f",
               "textGrowth": "fixed-width-height",
               "width": 72,
               "height": 22,
@@ -1887,7 +2041,7 @@
               "name": "Active Website Pill",
               "width": 112,
               "height": 48,
-              "fill": "#FFFFFF",
+              "fill": "#fff8e7",
               "cornerRadius": 9999,
               "layout": "none",
               "children": [
@@ -1897,7 +2051,7 @@
                   "x": 24,
                   "y": 13,
                   "name": "Website Active Text",
-                  "fill": "#1A1A1A",
+                  "fill": "#5c4b36",
                   "textGrowth": "fixed-width-height",
                   "width": 64,
                   "height": 22,
@@ -1915,7 +2069,7 @@
               "x": 980,
               "y": 31,
               "name": "Settings Nav",
-              "fill": "#666666",
+              "fill": "#8a7a5f",
               "textGrowth": "fixed-width-height",
               "width": 84,
               "height": 22,
@@ -1932,7 +2086,7 @@
               "name": "Website Preview Button",
               "width": 112,
               "height": 48,
-              "fill": "#FCFAF7",
+              "fill": "#f6f1d7",
               "cornerRadius": 9999,
               "layout": "none",
               "children": [
@@ -1942,7 +2096,7 @@
                   "x": 28,
                   "y": 13,
                   "name": "Website Preview Text",
-                  "fill": "#666666",
+                  "fill": "#8a7a5f",
                   "textGrowth": "fixed-width-height",
                   "width": 58,
                   "height": 22,
@@ -1962,7 +2116,7 @@
               "name": "Website Export Button",
               "width": 112,
               "height": 48,
-              "fill": "#1A1A1A",
+              "fill": "#5c4b36",
               "cornerRadius": 9999,
               "layout": "none",
               "children": [
@@ -1972,7 +2126,7 @@
                   "x": 30,
                   "y": 13,
                   "name": "Website Export Text",
-                  "fill": "#FFFFFF",
+                  "fill": "#fff8e7",
                   "textGrowth": "fixed-width-height",
                   "width": 52,
                   "height": 22,
@@ -1994,8 +2148,18 @@
           "name": "Explorer Panel",
           "width": 300,
           "height": 836,
-          "fill": "#F5F2ED",
-          "cornerRadius": 32,
+          "fill": "#eef7d9",
+          "cornerRadius": 34,
+          "effect": {
+            "type": "shadow",
+            "shadowType": "outer",
+            "color": "#d58adf18",
+            "offset": {
+              "x": 0,
+              "y": 12
+            },
+            "blur": 32
+          },
           "layout": "none",
           "children": [
             {
@@ -2004,7 +2168,7 @@
               "x": 28,
               "y": 30,
               "name": "Explorer Title",
-              "fill": "#1A1A1A",
+              "fill": "#5c4b36",
               "textGrowth": "fixed-width-height",
               "width": 120,
               "height": 28,
@@ -2021,8 +2185,8 @@
               "name": "Portfolio Root",
               "width": 252,
               "height": 58,
-              "fill": "#FFFFFF",
-              "cornerRadius": 18,
+              "fill": "#fff8e7",
+              "cornerRadius": 24,
               "layout": "none",
               "children": [
                 {
@@ -2031,7 +2195,7 @@
                   "x": 20,
                   "y": 18,
                   "name": "Portfolio Text",
-                  "fill": "#1A1A1A",
+                  "fill": "#5c4b36",
                   "textGrowth": "fixed-width-height",
                   "width": 110,
                   "height": 22,
@@ -2048,7 +2212,7 @@
               "x": 52,
               "y": 166,
               "name": "Pages Folder",
-              "fill": "#666666",
+              "fill": "#8a7a5f",
               "textGrowth": "fixed-width-height",
               "width": 120,
               "height": 22,
@@ -2063,7 +2227,7 @@
               "x": 52,
               "y": 212,
               "name": "Styles Folder",
-              "fill": "#666666",
+              "fill": "#8a7a5f",
               "textGrowth": "fixed-width-height",
               "width": 120,
               "height": 22,
@@ -2078,7 +2242,7 @@
               "x": 52,
               "y": 258,
               "name": "Assets Folder",
-              "fill": "#666666",
+              "fill": "#8a7a5f",
               "textGrowth": "fixed-width-height",
               "width": 120,
               "height": 22,
@@ -2093,7 +2257,7 @@
               "x": 52,
               "y": 304,
               "name": "Components Folder",
-              "fill": "#666666",
+              "fill": "#8a7a5f",
               "textGrowth": "fixed-width-height",
               "width": 160,
               "height": 22,
@@ -2112,8 +2276,18 @@
           "name": "Editor Preview Panel",
           "width": 660,
           "height": 836,
-          "fill": "#F5F2ED",
-          "cornerRadius": 32,
+          "fill": "#eef7d9",
+          "cornerRadius": 34,
+          "effect": {
+            "type": "shadow",
+            "shadowType": "outer",
+            "color": "#d58adf18",
+            "offset": {
+              "x": 0,
+              "y": 12
+            },
+            "blur": 32
+          },
           "layout": "none",
           "children": [
             {
@@ -2122,7 +2296,7 @@
               "x": 36,
               "y": 30,
               "name": "Main Title",
-              "fill": "#1A1A1A",
+              "fill": "#5c4b36",
               "textGrowth": "fixed-width-height",
               "width": 190,
               "height": 28,
@@ -2139,7 +2313,7 @@
               "name": "Mode Tabs",
               "width": 220,
               "height": 44,
-              "fill": "#FFFFFF",
+              "fill": "#fff8e7",
               "cornerRadius": 9999,
               "layout": "none",
               "children": [
@@ -2151,7 +2325,7 @@
                   "name": "Code Tab",
                   "width": 100,
                   "height": 32,
-                  "fill": "#A881C2",
+                  "fill": "#7fb069",
                   "cornerRadius": 9999,
                   "layout": "none",
                   "children": [
@@ -2161,7 +2335,7 @@
                       "x": 31,
                       "y": 7,
                       "name": "Code Tab Text",
-                      "fill": "#FFFFFF",
+                      "fill": "#fff8e7",
                       "textGrowth": "fixed-width-height",
                       "width": 38,
                       "height": 18,
@@ -2178,7 +2352,7 @@
                   "x": 132,
                   "y": 13,
                   "name": "Preview Tab Text",
-                  "fill": "#666666",
+                  "fill": "#8a7a5f",
                   "textGrowth": "fixed-width-height",
                   "width": 54,
                   "height": 18,
@@ -2197,8 +2371,8 @@
               "name": "Code Editor",
               "width": 588,
               "height": 332,
-              "fill": "#1A1A1A",
-              "cornerRadius": 24,
+              "fill": "#5c4b36",
+              "cornerRadius": 26,
               "layout": "none",
               "children": [
                 {
@@ -2207,7 +2381,7 @@
                   "x": 28,
                   "y": 28,
                   "name": "Code Line 1",
-                  "fill": "#FFD700",
+                  "fill": "#f0b85a",
                   "textGrowth": "fixed-width-height",
                   "width": 350,
                   "height": 20,
@@ -2222,7 +2396,7 @@
                   "x": 28,
                   "y": 66,
                   "name": "Code Line 2",
-                  "fill": "#FCFAF7",
+                  "fill": "#f6f1d7",
                   "textGrowth": "fixed-width-height",
                   "width": 420,
                   "height": 20,
@@ -2237,7 +2411,7 @@
                   "x": 28,
                   "y": 104,
                   "name": "Code Line 3",
-                  "fill": "#A881C2",
+                  "fill": "#7fb069",
                   "textGrowth": "fixed-width-height",
                   "width": 380,
                   "height": 20,
@@ -2256,8 +2430,8 @@
               "name": "Website Preview",
               "width": 588,
               "height": 322,
-              "fill": "#FFFFFF",
-              "cornerRadius": 24,
+              "fill": "#fff8e7",
+              "cornerRadius": 26,
               "layout": "none",
               "children": [
                 {
@@ -2266,7 +2440,7 @@
                   "x": 42,
                   "y": 40,
                   "name": "Preview Name",
-                  "fill": "#1A1A1A",
+                  "fill": "#5c4b36",
                   "textGrowth": "fixed-width-height",
                   "width": 240,
                   "height": 44,
@@ -2281,7 +2455,7 @@
                   "x": 44,
                   "y": 100,
                   "name": "Preview Copy",
-                  "fill": "#666666",
+                  "fill": "#8a7a5f",
                   "textGrowth": "fixed-width-height",
                   "width": 300,
                   "height": 48,
@@ -2298,8 +2472,8 @@
                   "name": "Preview Project Card",
                   "width": 180,
                   "height": 220,
-                  "fill": "#F5F2ED",
-                  "cornerRadius": 22,
+                  "fill": "#eef7d9",
+                  "cornerRadius": 24,
                   "layout": "none",
                   "children": [
                     {
@@ -2310,8 +2484,8 @@
                       "name": "Project Visual",
                       "width": 132,
                       "height": 92,
-                      "fill": "#A881C2",
-                      "cornerRadius": 18
+                      "fill": "#7fb069",
+                      "cornerRadius": 24
                     }
                   ]
                 }
@@ -2327,8 +2501,18 @@
           "name": "Website AI Assistant",
           "width": 320,
           "height": 836,
-          "fill": "#F5F2ED",
-          "cornerRadius": 32,
+          "fill": "#eef7d9",
+          "cornerRadius": 34,
+          "effect": {
+            "type": "shadow",
+            "shadowType": "outer",
+            "color": "#d58adf18",
+            "offset": {
+              "x": 0,
+              "y": 12
+            },
+            "blur": 32
+          },
           "layout": "none",
           "children": [
             {
@@ -2337,13 +2521,13 @@
               "x": 30,
               "y": 30,
               "name": "Assistant Cat",
-              "fill": "#A881C2",
+              "fill": "#5c4b36",
               "textGrowth": "fixed-width-height",
-              "width": 60,
-              "height": 44,
-              "content": "CAT",
+              "width": 170,
+              "height": 28,
+              "content": "AI Assistant",
               "fontFamily": "Geist",
-              "fontSize": 28,
+              "fontSize": 22,
               "fontWeight": "800"
             },
             {
@@ -2354,8 +2538,8 @@
               "name": "Prompt Bubble",
               "width": 264,
               "height": 74,
-              "fill": "#FFFFFF",
-              "cornerRadius": 22,
+              "fill": "#fff8e7",
+              "cornerRadius": 24,
               "layout": "none",
               "children": [
                 {
@@ -2364,7 +2548,7 @@
                   "x": 22,
                   "y": 25,
                   "name": "Prompt Bubble Text",
-                  "fill": "#1A1A1A",
+                  "fill": "#5c4b36",
                   "textGrowth": "fixed-width-height",
                   "width": 160,
                   "height": 22,
@@ -2381,7 +2565,7 @@
               "x": 30,
               "y": 214,
               "name": "Modified Files",
-              "fill": "#1A1A1A",
+              "fill": "#5c4b36",
               "textGrowth": "fixed-width-height",
               "width": 160,
               "height": 24,
@@ -2398,8 +2582,8 @@
               "name": "Modified File 1",
               "width": 264,
               "height": 54,
-              "fill": "#FFFFFF",
-              "cornerRadius": 18,
+              "fill": "#fff8e7",
+              "cornerRadius": 24,
               "layout": "none",
               "children": [
                 {
@@ -2408,7 +2592,7 @@
                   "x": 20,
                   "y": 17,
                   "name": "File 1 Text",
-                  "fill": "#666666",
+                  "fill": "#8a7a5f",
                   "textGrowth": "fixed-width-height",
                   "width": 150,
                   "height": 20,
@@ -2427,8 +2611,8 @@
               "name": "Modified File 2",
               "width": 264,
               "height": 54,
-              "fill": "#FFFFFF",
-              "cornerRadius": 18,
+              "fill": "#fff8e7",
+              "cornerRadius": 24,
               "layout": "none",
               "children": [
                 {
@@ -2437,7 +2621,7 @@
                   "x": 20,
                   "y": 17,
                   "name": "File 2 Text",
-                  "fill": "#666666",
+                  "fill": "#8a7a5f",
                   "textGrowth": "fixed-width-height",
                   "width": 150,
                   "height": 20,
@@ -2449,6 +2633,29 @@
               ]
             }
           ]
+        },
+        {
+          "type": "ellipse",
+          "id": "WCzCp",
+          "x": 330,
+          "y": 126,
+          "name": "Cute Dot Website 1",
+          "fill": "#a9d6d0",
+          "width": 14,
+          "height": 14
+        },
+        {
+          "type": "polygon",
+          "polygonCount": 4,
+          "cornerRadius": 4,
+          "id": "Movj0",
+          "x": 1348,
+          "y": 126,
+          "name": "Cute Star Website 1",
+          "rotation": 45,
+          "fill": "#9fd8aa",
+          "width": 18,
+          "height": 18
         }
       ]
     },
@@ -2460,7 +2667,7 @@
       "name": "04 Settings",
       "width": 1440,
       "height": 1024,
-      "fill": "#FCFAF7",
+      "fill": "#f6f1d7",
       "layout": "none",
       "children": [
         {
@@ -2471,8 +2678,8 @@
           "name": "Settings Top Navigation",
           "width": 1344,
           "height": 84,
-          "fill": "#F5F2ED",
-          "cornerRadius": 28,
+          "fill": "#eef7d9",
+          "cornerRadius": 34,
           "layout": "none",
           "children": [
             {
@@ -2483,8 +2690,8 @@
               "name": "Logo",
               "width": 40,
               "height": 40,
-              "fill": "#FFFFFF",
-              "cornerRadius": 12,
+              "fill": "#fff8e7",
+              "cornerRadius": 18,
               "layout": "none",
               "children": [
                 {
@@ -2495,8 +2702,8 @@
                   "name": "Logo Ear Left",
                   "width": 8,
                   "height": 8,
-                  "fill": "#F8C9D4",
-                  "cornerRadius": 3
+                  "fill": "#f3c987",
+                  "cornerRadius": 7
                 },
                 {
                   "type": "frame",
@@ -2506,8 +2713,8 @@
                   "name": "Logo Ear Right",
                   "width": 8,
                   "height": 8,
-                  "fill": "#F8C9D4",
-                  "cornerRadius": 3
+                  "fill": "#f3c987",
+                  "cornerRadius": 7
                 },
                 {
                   "type": "frame",
@@ -2517,7 +2724,7 @@
                   "name": "Logo Face",
                   "width": 22,
                   "height": 18,
-                  "fill": "#F5F2ED",
+                  "fill": "#eef7d9",
                   "cornerRadius": 9999,
                   "layout": "none",
                   "children": [
@@ -2529,7 +2736,7 @@
                       "name": "Eye Left",
                       "width": 3,
                       "height": 4,
-                      "fill": "#1A1A1A",
+                      "fill": "#5c4b36",
                       "cornerRadius": 9999
                     },
                     {
@@ -2540,7 +2747,7 @@
                       "name": "Eye Right",
                       "width": 3,
                       "height": 4,
-                      "fill": "#1A1A1A",
+                      "fill": "#5c4b36",
                       "cornerRadius": 9999
                     }
                   ]
@@ -2553,7 +2760,7 @@
               "x": 80,
               "y": 24,
               "name": "Brand",
-              "fill": "#1A1A1A",
+              "fill": "#5c4b36",
               "textGrowth": "fixed-width-height",
               "width": 220,
               "height": 32,
@@ -2568,7 +2775,7 @@
               "x": 742,
               "y": 31,
               "name": "Resume Nav",
-              "fill": "#666666",
+              "fill": "#8a7a5f",
               "textGrowth": "fixed-width-height",
               "width": 70,
               "height": 22,
@@ -2583,7 +2790,7 @@
               "x": 842,
               "y": 31,
               "name": "Website Nav",
-              "fill": "#666666",
+              "fill": "#8a7a5f",
               "textGrowth": "fixed-width-height",
               "width": 80,
               "height": 22,
@@ -2600,7 +2807,7 @@
               "name": "Active Settings Pill",
               "width": 118,
               "height": 48,
-              "fill": "#FFFFFF",
+              "fill": "#fff8e7",
               "cornerRadius": 9999,
               "layout": "none",
               "children": [
@@ -2610,7 +2817,7 @@
                   "x": 27,
                   "y": 13,
                   "name": "Settings Active Text",
-                  "fill": "#1A1A1A",
+                  "fill": "#5c4b36",
                   "textGrowth": "fixed-width-height",
                   "width": 64,
                   "height": 22,
@@ -2629,7 +2836,7 @@
               "name": "Done Button",
               "width": 108,
               "height": 48,
-              "fill": "#1A1A1A",
+              "fill": "#5c4b36",
               "cornerRadius": 9999,
               "layout": "none",
               "children": [
@@ -2639,7 +2846,7 @@
                   "x": 36,
                   "y": 13,
                   "name": "Done Text",
-                  "fill": "#FFFFFF",
+                  "fill": "#fff8e7",
                   "textGrowth": "fixed-width-height",
                   "width": 40,
                   "height": 22,
@@ -2660,8 +2867,18 @@
           "name": "Settings Sidebar",
           "width": 300,
           "height": 836,
-          "fill": "#F5F2ED",
-          "cornerRadius": 32,
+          "fill": "#eef7d9",
+          "cornerRadius": 34,
+          "effect": {
+            "type": "shadow",
+            "shadowType": "outer",
+            "color": "#d58adf18",
+            "offset": {
+              "x": 0,
+              "y": 12
+            },
+            "blur": 32
+          },
           "layout": "none",
           "children": [
             {
@@ -2670,7 +2887,7 @@
               "x": 28,
               "y": 30,
               "name": "Settings Title",
-              "fill": "#1A1A1A",
+              "fill": "#5c4b36",
               "textGrowth": "fixed-width-height",
               "width": 110,
               "height": 28,
@@ -2685,7 +2902,7 @@
               "x": 44,
               "y": 92,
               "name": "General",
-              "fill": "#666666",
+              "fill": "#8a7a5f",
               "textGrowth": "fixed-width-height",
               "width": 100,
               "height": 24,
@@ -2702,8 +2919,8 @@
               "name": "AI Model Active",
               "width": 252,
               "height": 56,
-              "fill": "#FFFFFF",
-              "cornerRadius": 18,
+              "fill": "#fff8e7",
+              "cornerRadius": 24,
               "layout": "none",
               "children": [
                 {
@@ -2712,7 +2929,7 @@
                   "x": 20,
                   "y": 17,
                   "name": "AI Model Text",
-                  "fill": "#1A1A1A",
+                  "fill": "#5c4b36",
                   "textGrowth": "fixed-width-height",
                   "width": 100,
                   "height": 22,
@@ -2729,7 +2946,7 @@
               "x": 44,
               "y": 216,
               "name": "Appearance",
-              "fill": "#666666",
+              "fill": "#8a7a5f",
               "textGrowth": "fixed-width-height",
               "width": 120,
               "height": 24,
@@ -2744,7 +2961,7 @@
               "x": 44,
               "y": 268,
               "name": "Export",
-              "fill": "#666666",
+              "fill": "#8a7a5f",
               "textGrowth": "fixed-width-height",
               "width": 100,
               "height": 24,
@@ -2759,7 +2976,7 @@
               "x": 44,
               "y": 320,
               "name": "About",
-              "fill": "#666666",
+              "fill": "#8a7a5f",
               "textGrowth": "fixed-width-height",
               "width": 100,
               "height": 24,
@@ -2778,8 +2995,18 @@
           "name": "AI Provider Settings",
           "width": 1012,
           "height": 836,
-          "fill": "#F5F2ED",
-          "cornerRadius": 32,
+          "fill": "#eef7d9",
+          "cornerRadius": 34,
+          "effect": {
+            "type": "shadow",
+            "shadowType": "outer",
+            "color": "#d58adf18",
+            "offset": {
+              "x": 0,
+              "y": 12
+            },
+            "blur": 32
+          },
           "layout": "none",
           "children": [
             {
@@ -2788,14 +3015,14 @@
               "x": 44,
               "y": 38,
               "name": "AI Provider Title",
-              "fill": "#1A1A1A",
+              "fill": "#5c4b36",
               "textGrowth": "fixed-width-height",
               "width": 220,
               "height": 34,
               "content": "AI Provider",
               "fontFamily": "Geist",
               "fontSize": 28,
-              "fontWeight": "900"
+              "fontWeight": "800"
             },
             {
               "type": "text",
@@ -2803,7 +3030,7 @@
               "x": 46,
               "y": 82,
               "name": "AI Provider Description",
-              "fill": "#666666",
+              "fill": "#8a7a5f",
               "textGrowth": "fixed-width-height",
               "width": 520,
               "height": 24,
@@ -2818,7 +3045,7 @@
               "x": 48,
               "y": 148,
               "name": "Base URL Label",
-              "fill": "#1A1A1A",
+              "fill": "#5c4b36",
               "textGrowth": "fixed-width-height",
               "width": 120,
               "height": 22,
@@ -2835,8 +3062,8 @@
               "name": "Base URL Input",
               "width": 760,
               "height": 58,
-              "fill": "#FFFFFF",
-              "cornerRadius": 18,
+              "fill": "#fff8e7",
+              "cornerRadius": 24,
               "layout": "none",
               "children": [
                 {
@@ -2845,7 +3072,7 @@
                   "x": 22,
                   "y": 18,
                   "name": "Base URL Value",
-                  "fill": "#666666",
+                  "fill": "#8a7a5f",
                   "textGrowth": "fixed-width-height",
                   "width": 320,
                   "height": 22,
@@ -2862,7 +3089,7 @@
               "x": 48,
               "y": 276,
               "name": "API Key Label",
-              "fill": "#1A1A1A",
+              "fill": "#5c4b36",
               "textGrowth": "fixed-width-height",
               "width": 120,
               "height": 22,
@@ -2879,8 +3106,8 @@
               "name": "API Key Input",
               "width": 760,
               "height": 58,
-              "fill": "#FFFFFF",
-              "cornerRadius": 18,
+              "fill": "#fff8e7",
+              "cornerRadius": 24,
               "layout": "none",
               "children": [
                 {
@@ -2889,7 +3116,7 @@
                   "x": 22,
                   "y": 18,
                   "name": "API Key Value",
-                  "fill": "#666666",
+                  "fill": "#8a7a5f",
                   "textGrowth": "fixed-width-height",
                   "width": 360,
                   "height": 22,
@@ -2906,7 +3133,7 @@
               "x": 48,
               "y": 404,
               "name": "Model Label",
-              "fill": "#1A1A1A",
+              "fill": "#5c4b36",
               "textGrowth": "fixed-width-height",
               "width": 120,
               "height": 22,
@@ -2923,8 +3150,8 @@
               "name": "Model Input",
               "width": 760,
               "height": 58,
-              "fill": "#FFFFFF",
-              "cornerRadius": 18,
+              "fill": "#fff8e7",
+              "cornerRadius": 24,
               "layout": "none",
               "children": [
                 {
@@ -2933,7 +3160,7 @@
                   "x": 22,
                   "y": 18,
                   "name": "Model Value",
-                  "fill": "#666666",
+                  "fill": "#8a7a5f",
                   "textGrowth": "fixed-width-height",
                   "width": 200,
                   "height": 22,
@@ -2950,7 +3177,7 @@
               "x": 48,
               "y": 532,
               "name": "Temperature Label",
-              "fill": "#1A1A1A",
+              "fill": "#5c4b36",
               "textGrowth": "fixed-width-height",
               "width": 140,
               "height": 22,
@@ -2967,8 +3194,8 @@
               "name": "Temperature Input",
               "width": 220,
               "height": 58,
-              "fill": "#FFFFFF",
-              "cornerRadius": 18,
+              "fill": "#fff8e7",
+              "cornerRadius": 24,
               "layout": "none",
               "children": [
                 {
@@ -2977,7 +3204,7 @@
                   "x": 22,
                   "y": 18,
                   "name": "Temperature Value",
-                  "fill": "#666666",
+                  "fill": "#8a7a5f",
                   "textGrowth": "fixed-width-height",
                   "width": 60,
                   "height": 22,
@@ -2994,7 +3221,7 @@
               "x": 48,
               "y": 660,
               "name": "System Prompt Label",
-              "fill": "#1A1A1A",
+              "fill": "#5c4b36",
               "textGrowth": "fixed-width-height",
               "width": 160,
               "height": 22,
@@ -3011,8 +3238,8 @@
               "name": "System Prompt Input",
               "width": 760,
               "height": 58,
-              "fill": "#FFFFFF",
-              "cornerRadius": 18,
+              "fill": "#fff8e7",
+              "cornerRadius": 24,
               "layout": "none",
               "children": [
                 {
@@ -3021,7 +3248,7 @@
                   "x": 22,
                   "y": 18,
                   "name": "System Prompt Value",
-                  "fill": "#666666",
+                  "fill": "#8a7a5f",
                   "textGrowth": "fixed-width-height",
                   "width": 340,
                   "height": 22,
@@ -3040,8 +3267,8 @@
               "name": "Test Connection Button",
               "width": 128,
               "height": 58,
-              "fill": "#FFFFFF",
-              "cornerRadius": 18,
+              "fill": "#fff8e7",
+              "cornerRadius": 24,
               "layout": "none",
               "children": [
                 {
@@ -3050,7 +3277,7 @@
                   "x": 22,
                   "y": 19,
                   "name": "Test Text",
-                  "fill": "#666666",
+                  "fill": "#8a7a5f",
                   "textGrowth": "fixed-width-height",
                   "width": 86,
                   "height": 20,
@@ -3069,8 +3296,8 @@
               "name": "Save Button",
               "width": 128,
               "height": 58,
-              "fill": "#A881C2",
-              "cornerRadius": 18,
+              "fill": "#7fb069",
+              "cornerRadius": 24,
               "layout": "none",
               "children": [
                 {
@@ -3079,7 +3306,7 @@
                   "x": 48,
                   "y": 19,
                   "name": "Save Text",
-                  "fill": "#FFFFFF",
+                  "fill": "#fff8e7",
                   "textGrowth": "fixed-width-height",
                   "width": 34,
                   "height": 20,
@@ -3091,6 +3318,29 @@
               ]
             }
           ]
+        },
+        {
+          "type": "ellipse",
+          "id": "JB6ls",
+          "x": 330,
+          "y": 126,
+          "name": "Cute Dot Settings 1",
+          "fill": "#f6d69a",
+          "width": 14,
+          "height": 14
+        },
+        {
+          "type": "polygon",
+          "polygonCount": 4,
+          "cornerRadius": 4,
+          "id": "IebNs",
+          "x": 1348,
+          "y": 126,
+          "name": "Cute Star Settings 1",
+          "rotation": 45,
+          "fill": "#f0b85a",
+          "width": 18,
+          "height": 18
         }
       ]
     }
