@@ -1,3 +1,15 @@
 # 忽略子项目目录（不纳入 git 提交）
 reactive-resume/
 open-design/
+
+# Rust
+target/
+**/*.rs.bk
+
+# Node / Vite / Tauri build artifacts
+node_modules/
+apps/*/dist/
+apps/*/.vite/
+apps/*/src-tauri/target/
+apps/*/src-tauri/gen/
+apps/*/tsconfig.tsbuildinfo

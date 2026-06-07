@@ -1,0 +1,24 @@
+[package]
+name = "resume-core"
+description = "Core data model, JSON I/O, and Renderer trait for the resume engine."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+tempfile = { workspace = true }
+ts-rs = { workspace = true, optional = true }
+
+[features]
+# Enables ts-rs derive on all model types. Run
+#   cargo test -p resume-core --features ts
+# to (re)generate TypeScript bindings into apps/resume-app/src/lib/types/.
+ts = ["dep:ts-rs"]
+
+[dev-dependencies]
+tempfile = { workspace = true }

@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "schemaVersion": "0.1.0",
+    "name": "Resume 1",
+    "locale": "zh-CN"
+  },
+  "personal": {
+    "fullName": "张小明",
+    "title": "Senior Rust Engineer",
+    "email": "ming@example.com",
+    "phone": "+86 138-0000-0000",
+    "location": "上海",
+    "extras": [
+      { "key": "linkedin", "label": "LinkedIn", "value": "linkedin.com/in/ming" },
+      { "key": "website",  "label": "Website",  "value": "ming.dev" }
+    ]
+  },
+  "sections": [
+    {
+      "type": "summary",
+      "content": "8 年系统编程经验，专注于编译器工具链与高性能服务。"
+    },
+    {
+      "type": "experience",
+      "items": [
+        {
+          "company": "Acme Corp",
+          "role": "Senior Engineer",
+          "start": "2023.03",
+          "end": "Present",
+          "location": "上海",
+          "bullets": [
+            "主导 Rust 重写核心数据管线，端到端延迟下降 40%",
+            "建立 fuzz + property test 基础设施，年缺陷率减半"
+          ]
+        },
+        {
+          "company": "Globex",
+          "role": "Software Engineer",
+          "start": "2020.07",
+          "end": "2023.02",
+          "location": "北京",
+          "bullets": [
+            "实现自研 SQL 解析器与查询规划器",
+            "维护 4 万行 Go 服务，逐步迁移至 Rust"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "education",
+      "items": [
+        {
+          "school": "上海交通大学",
+          "degree": "M.S.",
+          "field": "Computer Science",
+          "start": "2018",
+          "end": "2020",
+          "honors": ["GPA 3.9/4.0"]
+        },
+        {
+          "school": "南京大学",
+          "degree": "B.S.",
+          "field": "Software Engineering",
+          "start": "2014",
+          "end": "2018"
+        }
+      ]
+    },
+    {
+      "type": "skills",
+      "groups": [
+        { "name": "Languages",  "items": ["Rust", "Go", "Python", "TypeScript"] },
+        { "name": "Systems",    "items": ["Linux", "tokio", "WebAssembly", "gRPC"] },
+        { "name": "Databases",  "items": ["PostgreSQL", "ClickHouse", "Redis"] }
+      ]
+    }
+  ]
+}

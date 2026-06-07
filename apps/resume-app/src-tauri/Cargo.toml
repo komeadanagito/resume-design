@@ -1,0 +1,28 @@
+[package]
+name = "resume-tauri"
+description = "Tauri desktop shell for the resume design app."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[[bin]]
+name = "resume-tauri"
+path = "src/main.rs"
+
+[build-dependencies]
+tauri-build = { workspace = true, features = [] }
+
+[dependencies]
+resume-core = { path = "../../../crates/resume-core" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+tauri = { workspace = true, features = [] }
+
+[dev-dependencies]
+tempfile = { workspace = true }
+
+[features]
+custom-protocol = ["tauri/custom-protocol"]
