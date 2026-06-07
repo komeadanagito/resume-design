@@ -1,20 +1,17 @@
-import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
-
+import { LocaleProvider } from "./lib/i18n";
 import { ResumeProvider } from "./lib/resume-context";
 import { EditorPage } from "./pages/EditorPage";
-import { PersonalDetailsPage } from "./pages/PersonalDetailsPage";
 
-/// Routes table — adding a new page is one entry here plus a file under `pages/`.
+/// Single-page entry. Routing wasn't earning its keep: the personal edit panel
+/// now expands the existing card in place rather than navigating away, and the
+/// Add Content modal lives inside `EditorPage`. New routes can be added back
+/// (e.g. `react-router`) when there's a real second top-level page.
 export function App() {
   return (
-    <ResumeProvider>
-      <HashRouter>
-        <Routes>
-          <Route path="/" element={<EditorPage />} />
-          <Route path="/personal" element={<PersonalDetailsPage />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </HashRouter>
-    </ResumeProvider>
+    <LocaleProvider initial="zh">
+      <ResumeProvider>
+        <EditorPage />
+      </ResumeProvider>
+    </LocaleProvider>
   );
 }

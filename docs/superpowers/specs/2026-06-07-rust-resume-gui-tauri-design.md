@@ -40,19 +40,24 @@ resume-design/                            (existing repo)
         ├── index.html
         ├── src/                          React frontend
         │   ├── main.tsx
-        │   ├── App.tsx                   Router + ResumeContext provider
+        │   ├── App.tsx                   LocaleProvider + ResumeProvider + EditorPage
         │   ├── styles.css                Tailwind directives
         │   ├── lib/
         │   │   ├── tauri.ts              Thin wrappers around invoke()
         │   │   ├── resume-context.tsx    Context + reducer
-        │   │   ├── section-registry.ts   Extension point for section kinds
+        │   │   ├── section-registry.ts   Extension point for section kinds (titleKey-based)
+        │   │   ├── i18n/                 LocaleProvider + zh/en dicts + useT()
         │   │   └── types/                ts-rs generated (committed)
         │   ├── pages/
-        │   │   ├── EditorPage.tsx        App shell
-        │   │   └── PersonalDetailsPage.tsx  Form
+        │   │   └── EditorPage.tsx        App shell + AddContentModal toggle
         │   └── components/
         │       ├── TopNav.tsx
-        │       ├── PersonalCard.tsx
+        │       ├── Modal.tsx             Generic centered modal (portal + backdrop + Esc)
+        │       ├── AddContentModal.tsx   Title + close + empty body (cards: later)
+        │       ├── personal/
+        │       │   ├── PersonalSection.tsx     orchestrator (collapsed ↔ expanded)
+        │       │   ├── PersonalCollapsed.tsx   read-only card
+        │       │   └── PersonalEditPanel.tsx   inline edit form (replaces card in place)
         │       └── form/                 Field/Input/Button atoms
         └── src-tauri/                    Rust backend (new workspace member)
             ├── Cargo.toml
@@ -95,12 +100,12 @@ pub fn default_resume_path() -> Result<PathBuf, AppError>;
 |---|---|---|
 | Framework | React 18 + TS | Tauri default |
 | Build | Vite | Tauri default |
-| Routing | `react-router-dom` v6 | Declarative `<Routes>` table; new page = new entry |
+| Routing | None (single-page) | Personal edit expands in place; modal lives inside EditorPage. Router can be added back when a real second top-level page lands. |
 | Styling | Tailwind 3 | Match prototype quickly; token-driven design system |
 | Forms | `react-hook-form` + `zod` | One declaration per field; resolver runs zod schema |
 | Icons | `lucide-react` | Matches prototype icon style |
 | Global state | `useReducer` + `createContext` | One place to extend; no extra dep |
-| i18n | Hard-coded `"EN 中文"` strings | YAGNI until 2nd language pair needed |
+| i18n | Custom `LocaleProvider` + zh/en dicts + `useT()` | Strings live in `src/lib/i18n/{zh,en}.ts`. Default locale `zh`. Locale switcher UI deferred to a later slice but the foundation is wired. |
 
 ## Type sync — `ts-rs`
 

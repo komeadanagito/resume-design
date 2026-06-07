@@ -54,7 +54,8 @@ pub struct ResumeMeta {
 
 impl Resume {
     /// Blank resume at the current schema version. Used when the on-disk file
-    /// does not yet exist (first launch).
+    /// does not yet exist (first launch). The user adds sections via the Add
+    /// Content modal in the GUI.
     pub fn blank() -> Self {
         Self {
             meta: ResumeMeta {
