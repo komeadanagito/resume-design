@@ -10,6 +10,17 @@
 
 ---
 
+> [!WARNING]
+> **本文档已被取代（SUPERSEDED）。**
+>
+> 本文档对应 Resume Studio 早期的「Rust workspace + Tauri commands」后端方向。2026-06-10 经过产品方向重审，决定改为 **Node.js daemon + skills/design-systems 协议 + CLI agent 适配器 + BYOK proxy** 架构（参照 Open Design）。`crates/resume-core` 等 Rust 工程作为方向探索归档保留，但不再投入开发。
+>
+> 当前生效的后端设计文档：[`2026-06-11-resume-studio-backend-design.zh.md`](./2026-06-11-resume-studio-backend-design.zh.md)。
+>
+> 本文档保留作为方向决策记录，**不再维护**。
+
+---
+
 ## 0. 修订记录
 
 | 版本 | 日期       | 修订人 | 说明                          |

@@ -11,6 +11,20 @@
 
 ---
 
+> [!WARNING]
+> **本文档已被取代（SUPERSEDED）。**
+>
+> 本文档对应 Resume Studio 早期的「Tauri 桌面编辑器 + AI 辅助」方向。2026-06-10 经过产品方向重审，决定改为 **Agent + Skills + Sandboxed Artifact** 架构（参照 Claude Design / Open Design）：用户写草稿 → Turn-1 问询表单 → Direction picker → Agent 调用 skills → sandboxed iframe artifact → chat 迭代。
+>
+> 当前生效的设计文档：
+> - [`2026-06-11-resume-studio-prd.zh.md`](./2026-06-11-resume-studio-prd.zh.md)
+> - [`2026-06-11-resume-studio-frontend-design.zh.md`](./2026-06-11-resume-studio-frontend-design.zh.md)
+> - [`2026-06-11-resume-studio-backend-design.zh.md`](./2026-06-11-resume-studio-backend-design.zh.md)
+>
+> 本文档保留作为方向决策记录，**不再维护**。
+
+---
+
 ## 0. 修订记录
 
 | 版本 | 日期       | 修订人 | 说明                       |

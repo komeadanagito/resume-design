@@ -11,6 +11,17 @@
 
 ---
 
+> [!WARNING]
+> **本文档已被取代（SUPERSEDED）。**
+>
+> 本文档对应 Resume Studio 早期的「Tauri + React 编辑器」前端方向。2026-06-10 经过产品方向重审，决定改为 **Next.js 16 Web + 本地 daemon + sandboxed artifact iframe** 架构（参照 Open Design）。
+>
+> 当前生效的前端设计文档：[`2026-06-11-resume-studio-frontend-design.zh.md`](./2026-06-11-resume-studio-frontend-design.zh.md)。
+>
+> 本文档保留作为方向决策记录，**不再维护**。
+
+---
+
 ## 0. 修订记录
 
 | 版本 | 日期       | 修订人 | 说明                          |
