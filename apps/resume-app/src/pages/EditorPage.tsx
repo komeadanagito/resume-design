@@ -2,11 +2,14 @@ import { Plus } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
 import { AddContentModal } from "@/components/AddContentModal";
+import { CustomizePanel } from "@/components/customize/CustomizePanel";
 import { PersonalSection } from "@/components/personal/PersonalSection";
 import { renderSectionCard } from "@/components/sections/render";
 import { TopNav } from "@/components/TopNav";
 import { useT } from "@/lib/i18n";
 import { useResume } from "@/lib/resume-context";
+
+type TabKey = "content" | "customize";
 
 /// App shell — Phase 2 slice 1:
 ///   - Top nav (visual + locale awareness; routing not yet wired up)
@@ -17,6 +20,7 @@ export function EditorPage() {
   const t = useT();
   const { resume, status, error } = useResume();
   const [addContentOpen, setAddContentOpen] = useState(false);
+  const [currentTab, setCurrentTab] = useState<TabKey>("content");
 
   if (status === "loading") {
     return <CenteredMessage>{t("editor.loading")}</CenteredMessage>;
@@ -35,23 +39,35 @@ export function EditorPage() {
 
   return (
     <div className="flex h-full flex-col gap-6 bg-surface p-6">
-      <TopNav current="content" resumeName={resume.meta.name} />
+      <TopNav
+        current={currentTab}
+        resumeName={resume.meta.name}
+        onTabChange={(key) => {
+          if (key === "content" || key === "customize") setCurrentTab(key);
+        }}
+      />
 
       <main className="grid flex-1 grid-cols-[minmax(360px,_560px)_1fr] gap-6 overflow-hidden">
-        <section className="flex flex-col gap-4 overflow-auto pr-1">
-          <PersonalSection />
+        {currentTab === "content" ? (
+          <section className="flex flex-col gap-4 overflow-auto pr-1">
+            <PersonalSection />
 
-          {resume.sections.map((section, i) => renderSectionCard(section, i))}
+            {resume.sections.map((section, i) => renderSectionCard(section, i))}
 
-          <button
-            type="button"
-            onClick={() => setAddContentOpen(true)}
-            className="mx-auto mt-2 flex w-[260px] items-center justify-center gap-2 rounded-button bg-brand-500 px-6 py-4 text-base font-bold text-white shadow-card transition hover:bg-brand-600 hover:shadow-cardHover"
-          >
-            <Plus size={18} />
-            {t("editor.addContent")}
-          </button>
-        </section>
+            <button
+              type="button"
+              onClick={() => setAddContentOpen(true)}
+              className="mx-auto mt-2 flex w-[260px] items-center justify-center gap-2 rounded-button bg-brand-500 px-6 py-4 text-base font-bold text-white shadow-card transition hover:bg-brand-600 hover:shadow-cardHover"
+            >
+              <Plus size={18} />
+              {t("editor.addContent")}
+            </button>
+          </section>
+        ) : (
+          <section className="flex flex-col overflow-hidden">
+            <CustomizePanel />
+          </section>
+        )}
 
         <section className="flex flex-col items-center justify-center rounded-card bg-surface-card text-ink-300 shadow-card">
           <p className="text-sm">{t("editor.previewPlaceholder")}</p>

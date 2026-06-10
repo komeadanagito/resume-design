@@ -9,6 +9,8 @@ import {
 
 import type { PersonalInfo } from "./types/PersonalInfo";
 import type { Resume } from "./types/Resume";
+import type { ResumeSettings } from "./types/ResumeSettings";
+import { DEFAULT_SETTINGS } from "./types/ResumeSettings";
 import type { Section } from "./types/Section";
 import { loadResume, saveResume } from "./tauri";
 
@@ -62,6 +64,8 @@ type ResumeContextValue = {
   error: string | null;
   dispatch: (action: ResumeAction) => void;
   save: () => Promise<void>;
+  settings: ResumeSettings;
+  setSettings: (patch: Partial<ResumeSettings>) => void;
 };
 
 const ResumeContext = createContext<ResumeContextValue | null>(null);
@@ -82,6 +86,10 @@ const PLACEHOLDER_RESUME: Resume = {
 
 export function ResumeProvider({ children }: { children: ReactNode }) {
   const [resume, dispatch] = useReducer(resumeReducer, PLACEHOLDER_RESUME);
+  const [settings, _setSettings] = useReducerState<ResumeSettings>(DEFAULT_SETTINGS);
+
+  const setSettings = (patch: Partial<ResumeSettings>) =>
+    _setSettings({ ...settings, ...patch });
   const [status, setStatus] = useReducerState<Status>("loading");
   const [error, setError] = useReducerState<string | null>(null);
 
@@ -110,8 +118,8 @@ export function ResumeProvider({ children }: { children: ReactNode }) {
   };
 
   const value = useMemo<ResumeContextValue>(
-    () => ({ resume: status === "loading" ? null : resume, status, error, dispatch, save }),
-    [resume, status, error],
+    () => ({ resume: status === "loading" ? null : resume, status, error, dispatch, save, settings, setSettings }),
+    [resume, status, error, settings],
   );
 
   return <ResumeContext.Provider value={value}>{children}</ResumeContext.Provider>;

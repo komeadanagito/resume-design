@@ -14,11 +14,12 @@ const NAV: { key: NavKey; labelKey: StringKey }[] = [
 export type TopNavProps = {
   current: NavKey;
   resumeName: string;
+  onTabChange?: (key: NavKey) => void;
 };
 
 /// Floating white card across the top: blue logo block, brand text, nav pills,
 /// resume dropdown, dark Download button, ⋯ button.
-export function TopNav({ current, resumeName }: TopNavProps) {
+export function TopNav({ current, resumeName, onTabChange }: TopNavProps) {
   const t = useT();
 
   return (
@@ -31,6 +32,7 @@ export function TopNav({ current, resumeName }: TopNavProps) {
               <button
                 key={item.key}
                 type="button"
+                onClick={() => onTabChange?.(item.key)}
                 className={[
                   "inline-flex items-center gap-2 rounded-pill px-4 py-2.5 text-sm font-semibold transition",
                   active
