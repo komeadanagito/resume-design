@@ -711,6 +711,8 @@ projects/<id>/artifacts/v1/
 └── preview.png       （服务端渲染缩略图）
 ```
 
+> **实施修订（2026-06-12，slice 3）**：artifact 解析采用 **message_completed 后一次性提取**，而非流式 chunk 级解析 —— 跨 chunk 的标签边界检测复杂度高、收益低。`artifact_chunk` SSE 事件保留在 contracts 中但暂不发射；流式 artifact 渲染推迟到 slice 11（性能优化）。聊天历史只保留 artifact 外的正文，artifact 本体进 ArtifactStore（`projects/<id>/artifacts.json` + `resume.html`）。
+
 ### 12.2 解析
 
 ```ts

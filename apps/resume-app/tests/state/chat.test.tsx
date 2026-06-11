@@ -167,6 +167,33 @@ describe("ChatProvider", () => {
     expect(result.current.activeTab).toBe("resume.html");
   });
 
+  it("inserts a human-loop card message on card SSE event", async () => {
+    const { result } = renderHook(() => useChat(), { wrapper });
+    await act(async () => {});
+
+    await act(async () => {
+      await result.current.sendMessage("做简历");
+    });
+
+    act(() => {
+      FakeEventSource.last!.emit("card", {
+        type: "card",
+        card: {
+          id: "card_1",
+          kind: "OptionCard",
+          title: "选一个风格",
+          payload: { multiple: false, options: [{ value: "modern", label: "现代" }] }
+        }
+      });
+    });
+
+    await waitFor(() => {
+      const last = result.current.messages.at(-1)!;
+      expect(last.kind).toBe("option_card");
+      expect(last.card).toMatchObject({ id: "card_1", status: "pending", prompt: "选一个风格" });
+    });
+  });
+
   it("cancelWorking resets to idle and calls the cancel endpoint", async () => {
     const { result } = renderHook(() => useChat(), { wrapper });
     // Flush the initial getProjectState load so it doesn't clobber sent messages.

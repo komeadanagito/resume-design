@@ -1,7 +1,42 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
-import type { ChatMessage } from '../types';
+import type { ChatMessage, HumanLoopCard } from '../types';
 import { cancelRun, getProjectState, sendMessage as postMessage } from '../lib/api';
 import { subscribeToConversation, type SseSubscription } from '../runtime/sse-client';
+
+// Maps the daemon's contracts card shape ({ kind: "QuestionForm", payload })
+// onto the local rich card union the HumanLoopCards components render.
+function toLocalCard(card: { id: string; kind: string; title: string; payload?: unknown }): HumanLoopCard | null {
+  const p = (card.payload ?? {}) as Record<string, unknown>;
+  const base = {
+    id: card.id,
+    conversationId: '',
+    createdAt: Date.now(),
+    status: 'pending' as const,
+    prompt: card.title,
+  };
+  switch (card.kind) {
+    case 'QuestionForm':
+      return { ...base, kind: 'question_form', fields: (p.fields as never[]) ?? [] };
+    case 'DirectionPicker':
+      return { ...base, kind: 'direction_pick', directions: (p.directions as never[]) ?? [], allowOverride: Boolean(p.allowOverride) };
+    case 'OptionCard':
+      return { ...base, kind: 'option_card', multiple: Boolean(p.multiple), options: (p.options as never[]) ?? [] };
+    case 'ConfirmCard':
+      return { ...base, kind: 'confirm_card', actions: (p.actions as never[]) ?? [] };
+    case 'DiffCard':
+      return {
+        ...base,
+        kind: 'diff_card',
+        before: String(p.before ?? ''),
+        after: String(p.after ?? ''),
+        field: String(p.field ?? ''),
+        acceptLabel: String(p.acceptLabel ?? '接受'),
+        rejectLabel: String(p.rejectLabel ?? '拒绝'),
+      };
+    default:
+      return null;
+  }
+}
 
 export type ChatStatus = 'idle' | 'thinking' | 'tooling' | 'writing' | 'error';
 
@@ -156,6 +191,23 @@ export function ChatProvider({ projectId, children }: { projectId: string; child
             finishInflight();
             break;
           }
+          case 'card': {
+            const local = toLocalCard(event.card);
+            if (local) {
+              setMessages((prev) => [
+                ...prev,
+                {
+                  id: `cardmsg-${local.id}`,
+                  role: 'assistant',
+                  kind: local.kind,
+                  content: local.prompt,
+                  createdAt: Date.now(),
+                  card: local,
+                },
+              ]);
+            }
+            break;
+          }
           case 'artifact_done': {
             const fileName = fileNameFor(event.tabId);
             setArtifacts((prev) => ({ ...prev, [fileName]: event.final.content }));
@@ -186,11 +238,18 @@ export function ChatProvider({ projectId, children }: { projectId: string; child
     [projectId, finishInflight]
   );
 
-  // Card responses round-trip as plain user text until slice 4 adds the
-  // dedicated /cards/:id/respond endpoint.
+  // Card responses round-trip as user text with a protocol prefix the agent
+  // is primed to recognise (see daemon prompts/system.ts).
   const respondToCard = useCallback(
     async (cardId: string, payload: unknown) => {
-      await sendMessage(`[card:${cardId}] ${JSON.stringify(payload)}`);
+      setMessages((prev) =>
+        prev.map((m) =>
+          m.card && m.card.id === cardId
+            ? { ...m, card: { ...m.card, status: 'responded' } as HumanLoopCard }
+            : m
+        )
+      );
+      await sendMessage(`[card response ${cardId}] ${JSON.stringify(payload)}`);
     },
     [sendMessage]
   );
