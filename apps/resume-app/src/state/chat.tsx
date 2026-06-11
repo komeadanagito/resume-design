@@ -24,23 +24,23 @@ export type ChatContextValue = {
 
 export const ChatContext = createContext<ChatContextValue | null>(null);
 
-// Placeholder workspace artifacts until slice 3 wires artifact_chunk /
-// artifact_done SSE events into real project files.
-const PLACEHOLDER_ARTIFACTS: Record<string, string> = {
-  'resume.html':
-    '<!DOCTYPE html><html><body style="font-family:Inter,sans-serif;color:#5C5564;display:flex;align-items:center;justify-content:center;height:100vh;margin:0"><p>简历 artifact 将在生成后显示在这里。</p></body></html>',
-  'resume.json': '{}',
-  'styles.css': '/* Generated styles will appear here. */',
-};
+const EMPTY_PREVIEW =
+  '<!DOCTYPE html><html><body style="font-family:Inter,sans-serif;color:#5C5564;display:flex;align-items:center;justify-content:center;height:100vh;margin:0"><p>简历 artifact 将在生成后显示在这里。</p></body></html>';
+
+// Mirrors the daemon's ArtifactStore.fileNameFor so tabs and on-disk files agree.
+function fileNameFor(tabId: string): string {
+  return tabId.startsWith('resume') ? 'resume.html' : `${tabId}.html`;
+}
 
 export function ChatProvider({ projectId, children }: { projectId: string; children: ReactNode }) {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [status, setStatus] = useState<ChatStatus>('idle');
   const [errorMessage, setErrorMessage] = useState<string | undefined>(undefined);
   const [activeTool] = useState<string | undefined>(undefined);
-  const [files] = useState<string[]>(Object.keys(PLACEHOLDER_ARTIFACTS));
+  const [artifacts, setArtifacts] = useState<Record<string, string>>({ 'resume.html': EMPTY_PREVIEW });
   const [tabs, setTabs] = useState<string[]>(['Design Files', 'resume.html']);
   const [activeTab, setActiveTab] = useState<string | null>('resume.html');
+  const files = Object.keys(artifacts);
   const subscriptionRef = useRef<SseSubscription | null>(null);
   const inflightContentRef = useRef('');
   const inflightIdRef = useRef<string | null>(null);
@@ -73,6 +73,13 @@ export function ChatProvider({ projectId, children }: { projectId: string; child
             createdAt: Date.parse(m.createdAt),
           }))
         );
+        if (state.artifacts.length > 0) {
+          const restored: Record<string, string> = {};
+          for (const artifact of state.artifacts) {
+            restored[fileNameFor(artifact.tabId)] = artifact.content;
+          }
+          setArtifacts((prev) => ({ ...prev, ...restored }));
+        }
       })
       .catch(() => {
         // First launch without daemon history is not an error surface.
@@ -149,6 +156,13 @@ export function ChatProvider({ projectId, children }: { projectId: string; child
             finishInflight();
             break;
           }
+          case 'artifact_done': {
+            const fileName = fileNameFor(event.tabId);
+            setArtifacts((prev) => ({ ...prev, [fileName]: event.final.content }));
+            setTabs((prev) => (prev.includes(fileName) ? prev : [...prev, fileName]));
+            setActiveTab(fileName);
+            break;
+          }
           case 'done': {
             setStatus('idle');
             subscriptionRef.current?.cancel();
@@ -214,7 +228,7 @@ export function ChatProvider({ projectId, children }: { projectId: string; child
     >
       {children}
       <div style={{ display: 'none' }} id="resume-artifacts-holder">
-        {Object.entries(PLACEHOLDER_ARTIFACTS).map(([k, v]) => (
+        {Object.entries(artifacts).map(([k, v]) => (
           <div key={k} id={`art-${k}`}>
             {v}
           </div>

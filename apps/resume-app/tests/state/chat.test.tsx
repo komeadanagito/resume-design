@@ -1,4 +1,4 @@
-import { act, renderHook, waitFor } from "@testing-library/react";
+import { act, cleanup, renderHook, waitFor } from "@testing-library/react";
 import type { ReactNode } from "react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { ChatProvider, useChat } from "@/state/chat";
@@ -71,6 +71,7 @@ beforeEach(() => {
 });
 
 afterEach(() => {
+  cleanup();
   vi.unstubAllGlobals();
   FakeEventSource.last = null;
   fetchMock.mockReset();
@@ -132,6 +133,38 @@ describe("ChatProvider", () => {
       expect(result.current.status).toBe("error");
       expect(result.current.errorMessage).toBe("rate limited");
     });
+  });
+
+  it("renders artifact content into the workspace on artifact_done", async () => {
+    const { result } = renderHook(() => useChat(), { wrapper });
+    await act(async () => {});
+
+    await act(async () => {
+      await result.current.sendMessage("做一份简历");
+    });
+
+    act(() => {
+      FakeEventSource.last!.emit("artifact_done", {
+        type: "artifact_done",
+        tabId: "resume-v1",
+        final: {
+          id: "art_1",
+          tabId: "resume-v1",
+          title: "简历",
+          mimeType: "text/html",
+          content: "<html><body><h1>张三</h1></body></html>",
+          createdAt: "2026-06-12T00:00:00.000Z"
+        }
+      });
+      FakeEventSource.last!.emit("done", { type: "done", durationMs: 5 });
+    });
+
+    await waitFor(() => {
+      const holder = document.getElementById("art-resume.html");
+      expect(holder?.textContent).toContain("张三");
+    });
+    expect(result.current.tabs).toContain("resume.html");
+    expect(result.current.activeTab).toBe("resume.html");
   });
 
   it("cancelWorking resets to idle and calls the cancel endpoint", async () => {
