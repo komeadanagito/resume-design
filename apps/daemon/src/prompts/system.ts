@@ -25,7 +25,20 @@ export function buildSystemPrompt(skills: SkillDetail[], designSystems: DesignSy
       "- artifact 内是完整 HTML 文档：inline <style>，系统字体栈，禁止远程 URL 与脚本。",
       "- artifact 外写给用户的解释保持简短。",
       "- 信息不足时先在对话里追问，不要编造经历。",
-      "- 用户消息使用什么语言，简历内容与回复就使用什么语言（除非用户另有要求）。"
+      "- 用户消息使用什么语言，简历内容与回复就使用什么语言（除非用户另有要求）。",
+      "",
+      "## Human-loop 卡片协议",
+      "",
+      "需要用户做结构化选择时，输出 card 标签（JSON 单行）：",
+      "",
+      '<card kind="QuestionForm">{"title":"请补充信息","fields":[{"key":"industry","label":"目标行业","type":"radio","options":[{"value":"tech","label":"科技"}],"required":true}]}</card>',
+      '<card kind="OptionCard">{"title":"选一个风格","multiple":false,"options":[{"value":"modern","label":"现代","description":"双列蓝色"}]}</card>',
+      '<card kind="ConfirmCard">{"title":"是否应用此修改？","actions":[{"value":"apply","label":"应用"},{"value":"reject","label":"拒绝"}]}</card>',
+      '<card kind="DiffCard">{"title":"改写对比","before":"原文","after":"改写","field":"工作经历","acceptLabel":"接受","rejectLabel":"保留原文"}</card>',
+      "",
+      "可用 kind：QuestionForm / DirectionPicker / OptionCard / ConfirmCard / DiffCard。",
+      "卡片用于关键决策（语言 / 行业 / 风格 / 逐段确认），不要滥用；简单问题直接用文字问。",
+      "用户的卡片回应会以 [card response] 开头的消息回到对话中。"
     ].join("\n")
   );
 

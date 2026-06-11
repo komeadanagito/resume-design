@@ -2,6 +2,7 @@ import type { ChatMessage, SseEvent } from "@resume-studio/contracts";
 import type { AnthropicAdapter } from "../anthropic/adapter.js";
 import { extractArtifacts } from "../artifacts/parser.js";
 import type { ArtifactStore } from "../artifacts/store.js";
+import { extractCards } from "../cards/parser.js";
 import { ConversationStore } from "./store.js";
 
 export type OrchestratorOptions = {
@@ -54,9 +55,10 @@ export class ConversationOrchestrator {
 
         if (event.type === "message_completed") {
           completedId = event.id;
-          // Extract artifacts once the full reply is known; chat history keeps
-          // only the prose, the artifact body lands in the ArtifactStore.
-          const { chatText, artifacts } = extractArtifacts(assistantBuffer);
+          // Extract artifacts and human-loop cards once the full reply is
+          // known; chat history keeps only the prose.
+          const { chatText: afterArtifacts, artifacts } = extractArtifacts(assistantBuffer);
+          const { chatText, cards } = extractCards(afterArtifacts);
           await this.store.append(projectId, {
             role: "assistant",
             content: chatText || assistantBuffer
@@ -67,6 +69,9 @@ export class ConversationOrchestrator {
               const saved = await this.artifacts.save(projectId, extracted);
               yield { type: "artifact_done", tabId: saved.tabId, final: saved };
             }
+          }
+          for (const card of cards) {
+            yield { type: "card", card };
           }
           continue;
         }
