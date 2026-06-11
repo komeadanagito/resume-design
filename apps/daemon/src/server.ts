@@ -3,7 +3,10 @@ import Fastify, { type FastifyInstance } from "fastify";
 import { AppErrorSchema, type AppError } from "@resume-studio/contracts";
 import { createAnthropicAdapter } from "./anthropic/adapter.js";
 import type { AnthropicLikeClient } from "./anthropic/types.js";
+import type { AnthropicAdapter } from "./anthropic/adapter.js";
 import { ArtifactStore } from "./artifacts/store.js";
+import { registerConfigRoutes } from "./config/routes.js";
+import { ConfigStore } from "./config/store.js";
 import { loadDesignSystems, loadSkills, summarizeDesignSystem, summarizeSkill } from "./content-index.js";
 import { ConversationOrchestrator } from "./conversations/orchestrator.js";
 import { registerConversationRoutes } from "./conversations/routes.js";
@@ -21,7 +24,7 @@ function appError(error: AppError, statusCode: number) {
 const disabledClient: AnthropicLikeClient = {
   messages: {
     stream() {
-      throw new Error("ANTHROPIC_API_KEY not set; configure it in your environment to enable chat.");
+      throw new Error("尚未配置 Anthropic API Key —— 请点击右上角设置，填入你的 API Key 后重试。");
     }
   }
 };
@@ -35,32 +38,48 @@ export async function createServer(options: DaemonOptions = {}): Promise<Fastify
   const designSystems = await loadDesignSystems(env.rootDir);
   const conversationStore = new ConversationStore(env.dataDir);
   const artifactStore = new ArtifactStore(env.dataDir);
+  const configStore = new ConfigStore(env.dataDir);
   const projectStore = new ProjectStore(env.dataDir, {
     conversations: conversationStore,
     artifacts: artifactStore
   });
 
-  const adapter = createAnthropicAdapter({
-    client: env.anthropicApiKey
-      ? (new Anthropic({ apiKey: env.anthropicApiKey }) as unknown as AnthropicLikeClient)
-      : disabledClient,
-    model: env.anthropicModel
-  });
+  // Resolves the API key per run so a key saved through Settings takes
+  // effect immediately, without a daemon restart. Env vars act as fallback.
+  const dynamicAdapter: AnthropicAdapter = {
+    async *run(input) {
+      const config = await configStore.get();
+      const apiKey = config.anthropicApiKey || env.anthropicApiKey;
+      const model = config.anthropicModel || env.anthropicModel;
+      const inner = createAnthropicAdapter({
+        client: apiKey
+          ? (new Anthropic({ apiKey }) as unknown as AnthropicLikeClient)
+          : disabledClient,
+        model
+      });
+      yield* inner.run(input);
+    }
+  };
+
   const orchestrator = new ConversationOrchestrator({
     store: conversationStore,
-    adapter,
+    adapter: dynamicAdapter,
     artifacts: artifactStore,
     systemPrompt: buildSystemPrompt(skills, designSystems)
   });
 
-  server.get("/api/health", async () => ({
-    status: "ok",
-    version: "0.1.0",
-    uptimeSec: Math.floor((Date.now() - startedAt) / 1000),
-    agents: { cliCount: 0, byokProviders: env.anthropicApiKey ? 1 : 0 },
-    skills: skills.length,
-    designSystems: designSystems.length
-  }));
+  server.get("/api/health", async () => {
+    const config = await configStore.get();
+    const hasKey = Boolean(config.anthropicApiKey || env.anthropicApiKey);
+    return {
+      status: "ok",
+      version: "0.1.0",
+      uptimeSec: Math.floor((Date.now() - startedAt) / 1000),
+      agents: { cliCount: 0, byokProviders: hasKey ? 1 : 0 },
+      skills: skills.length,
+      designSystems: designSystems.length
+    };
+  });
 
   server.get("/api/skills", async () => skills.map(summarizeSkill));
 
@@ -90,6 +109,7 @@ export async function createServer(options: DaemonOptions = {}): Promise<Fastify
   await registerProjectRoutes(server, projectStore);
   await registerConversationRoutes(server, { orchestrator, store: conversationStore });
   await registerFilesRoutes(server, { dataDir: env.dataDir });
+  await registerConfigRoutes(server, { store: configStore });
 
   return server;
 }
