@@ -8,6 +8,7 @@ import {
   type ProjectState,
   type UpdateProjectRequest
 } from "@resume-studio/contracts";
+import type { ConversationStore } from "../conversations/store.js";
 
 type ProjectDatabase = {
   projects: Project[];
@@ -28,11 +29,17 @@ export class ProjectNotFoundError extends Error {
   }
 }
 
+export type ProjectStoreDeps = {
+  conversations?: ConversationStore;
+};
+
 export class ProjectStore {
   private readonly filePath: string;
+  private readonly conversations?: ConversationStore;
 
-  constructor(dataDir: string) {
+  constructor(dataDir: string, deps: ProjectStoreDeps = {}) {
     this.filePath = join(dataDir, "projects.json");
+    this.conversations = deps.conversations;
   }
 
   async list(): Promise<Project[]> {
@@ -104,7 +111,8 @@ export class ProjectStore {
 
   async state(id: string): Promise<ProjectState> {
     const project = await this.get(id);
-    return { project, messages: [], artifacts: [] };
+    const messages = this.conversations ? await this.conversations.listMessages(id) : [];
+    return { project, messages, artifacts: [] };
   }
 
   private async read(): Promise<ProjectDatabase> {

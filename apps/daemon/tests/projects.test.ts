@@ -3,6 +3,8 @@ import { join } from "node:path";
 import { tmpdir } from "node:os";
 import { afterEach, describe, expect, it } from "vitest";
 import { createServer } from "../src/server.js";
+import { ConversationStore } from "../src/conversations/store.js";
+import { ProjectStore } from "../src/projects/store.js";
 
 const roots: string[] = [];
 
@@ -95,5 +97,20 @@ describe("project routes", () => {
 
     expect(response.statusCode).toBe(400);
     expect(response.json()).toMatchObject({ code: "validation_failed", retry: false });
+  });
+});
+
+describe("ProjectStore.state() with conversations", () => {
+  it("returns messages from the conversation store", async () => {
+    const dir = await mkdtemp(join(tmpdir(), "rs-proj-conv-"));
+    roots.push(dir);
+    const conv = new ConversationStore(dir);
+    const store = new ProjectStore(dir, { conversations: conv });
+    const project = await store.create({ name: "X", locale: "en-US" });
+    await conv.append(project.id, { role: "user", content: "Hi" });
+
+    const state = await store.state(project.id);
+    expect(state.messages).toHaveLength(1);
+    expect(state.messages[0].content).toBe("Hi");
   });
 });
