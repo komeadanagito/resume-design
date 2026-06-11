@@ -8,6 +8,7 @@ import {
   type ProjectState,
   type UpdateProjectRequest
 } from "@resume-studio/contracts";
+import type { ArtifactStore } from "../artifacts/store.js";
 import type { ConversationStore } from "../conversations/store.js";
 
 type ProjectDatabase = {
@@ -31,15 +32,18 @@ export class ProjectNotFoundError extends Error {
 
 export type ProjectStoreDeps = {
   conversations?: ConversationStore;
+  artifacts?: ArtifactStore;
 };
 
 export class ProjectStore {
   private readonly filePath: string;
   private readonly conversations?: ConversationStore;
+  private readonly artifacts?: ArtifactStore;
 
   constructor(dataDir: string, deps: ProjectStoreDeps = {}) {
     this.filePath = join(dataDir, "projects.json");
     this.conversations = deps.conversations;
+    this.artifacts = deps.artifacts;
   }
 
   async list(): Promise<Project[]> {
@@ -112,7 +116,8 @@ export class ProjectStore {
   async state(id: string): Promise<ProjectState> {
     const project = await this.get(id);
     const messages = this.conversations ? await this.conversations.listMessages(id) : [];
-    return { project, messages, artifacts: [] };
+    const artifacts = this.artifacts ? await this.artifacts.list(id) : [];
+    return { project, messages, artifacts };
   }
 
   private async read(): Promise<ProjectDatabase> {

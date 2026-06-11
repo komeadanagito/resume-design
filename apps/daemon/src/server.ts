@@ -3,11 +3,14 @@ import Fastify, { type FastifyInstance } from "fastify";
 import { AppErrorSchema, type AppError } from "@resume-studio/contracts";
 import { createAnthropicAdapter } from "./anthropic/adapter.js";
 import type { AnthropicLikeClient } from "./anthropic/types.js";
+import { ArtifactStore } from "./artifacts/store.js";
 import { loadDesignSystems, loadSkills, summarizeDesignSystem, summarizeSkill } from "./content-index.js";
 import { ConversationOrchestrator } from "./conversations/orchestrator.js";
 import { registerConversationRoutes } from "./conversations/routes.js";
 import { ConversationStore } from "./conversations/store.js";
 import { type DaemonOptions, resolveEnv } from "./env.js";
+import { buildSystemPrompt } from "./prompts/system.js";
+import { registerFilesRoutes } from "./projects/files-routes.js";
 import { registerProjectRoutes } from "./projects/routes.js";
 import { ProjectStore } from "./projects/store.js";
 
@@ -31,7 +34,11 @@ export async function createServer(options: DaemonOptions = {}): Promise<Fastify
   const skills = await loadSkills(env.rootDir);
   const designSystems = await loadDesignSystems(env.rootDir);
   const conversationStore = new ConversationStore(env.dataDir);
-  const projectStore = new ProjectStore(env.dataDir, { conversations: conversationStore });
+  const artifactStore = new ArtifactStore(env.dataDir);
+  const projectStore = new ProjectStore(env.dataDir, {
+    conversations: conversationStore,
+    artifacts: artifactStore
+  });
 
   const adapter = createAnthropicAdapter({
     client: env.anthropicApiKey
@@ -39,7 +46,12 @@ export async function createServer(options: DaemonOptions = {}): Promise<Fastify
       : disabledClient,
     model: env.anthropicModel
   });
-  const orchestrator = new ConversationOrchestrator({ store: conversationStore, adapter });
+  const orchestrator = new ConversationOrchestrator({
+    store: conversationStore,
+    adapter,
+    artifacts: artifactStore,
+    systemPrompt: buildSystemPrompt(skills, designSystems)
+  });
 
   server.get("/api/health", async () => ({
     status: "ok",
@@ -77,6 +89,7 @@ export async function createServer(options: DaemonOptions = {}): Promise<Fastify
 
   await registerProjectRoutes(server, projectStore);
   await registerConversationRoutes(server, { orchestrator, store: conversationStore });
+  await registerFilesRoutes(server, { dataDir: env.dataDir });
 
   return server;
 }
