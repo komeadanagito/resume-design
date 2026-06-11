@@ -76,6 +76,53 @@ describe("ConversationOrchestrator", () => {
     expect(messages[1]).toMatchObject({ role: "assistant", content: "Hi" });
   });
 
+  it("extracts artifacts from the assistant reply and emits artifact_done", async () => {
+    const { store, dir } = await makeStore();
+    const { ArtifactStore } = await import("../src/artifacts/store.js");
+    const artifacts = new ArtifactStore(dir);
+    const reply = [
+      "这是你的简历：",
+      '<artifact identifier="resume-v1" type="text/html" title="简历">',
+      "<html><body><h1>张三</h1></body></html>",
+      "</artifact>"
+    ].join("\n");
+
+    const adapter = createAnthropicAdapter({
+      client: {
+        messages: {
+          stream() {
+            async function* iter() {
+              yield { type: "content_block_delta", delta: { type: "text_delta", text: reply } } as const;
+              yield { type: "message_stop" } as const;
+            }
+            return { [Symbol.asyncIterator]: () => iter() };
+          }
+        }
+      },
+      model: "claude-sonnet-4-6"
+    });
+    const orch = new ConversationOrchestrator({ store, adapter, artifacts });
+
+    const events = [];
+    for await (const event of orch.runOnce("proj_1", { text: "做简历" })) {
+      events.push(event);
+    }
+
+    const artifactDone = events.find((e) => e.type === "artifact_done");
+    expect(artifactDone).toBeDefined();
+    expect(artifactDone).toMatchObject({ tabId: "resume-v1" });
+
+    // The persisted assistant message keeps only the chat text.
+    const messages = await store.listMessages("proj_1");
+    expect(messages[1].content).toContain("这是你的简历");
+    expect(messages[1].content).not.toContain("<artifact");
+
+    // Artifact persisted to the store.
+    const saved = await artifacts.list("proj_1");
+    expect(saved).toHaveLength(1);
+    expect(saved[0].content).toContain("张三");
+  });
+
   it("cancel() returns false when no run is inflight", async () => {
     const { store } = await makeStore();
     const adapter = createAnthropicAdapter({

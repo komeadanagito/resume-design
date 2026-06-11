@@ -9,6 +9,7 @@ export type AnthropicAdapterOptions = {
 
 export type RunInput = {
   messages: Array<Pick<ChatMessage, "role" | "content">>;
+  systemPrompt?: string;
   abortSignal: AbortSignal;
 };
 
@@ -29,7 +30,7 @@ export function createAnthropicAdapter(options: AnthropicAdapterOptions): Anthro
   const { client, model, maxTokens = 4096 } = options;
 
   return {
-    async *run({ messages, abortSignal }) {
+    async *run({ messages, systemPrompt, abortSignal }) {
       const messageId = makeId("msg");
       const startedAt = Date.now();
       let outputChars = 0;
@@ -41,6 +42,7 @@ export function createAnthropicAdapter(options: AnthropicAdapterOptions): Anthro
         stream = client.messages.stream({
           model,
           max_tokens: maxTokens,
+          ...(systemPrompt ? { system: systemPrompt } : {}),
           messages: messages
             .filter((m) => m.role === "user" || m.role === "assistant")
             .map((m) => ({ role: m.role, content: m.content }))
