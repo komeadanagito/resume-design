@@ -107,4 +107,27 @@ describe("daemon server", () => {
     expect(response.statusCode).toBe(404);
     expect(response.json()).toMatchObject({ code: "not_found", retry: false });
   });
+
+  it("exposes conversation routes", async () => {
+    const root = await fixtureRoot();
+    const server = await createServer({ rootDir: root, dataDir: join(root, "data") });
+
+    const response = await server.inject({ method: "POST", url: "/api/conversations/proj_1/cancel" });
+    expect(response.statusCode).toBe(200);
+    expect(response.json()).toEqual({ cancelled: false });
+    await server.close();
+  });
+
+  it("reports byokProviders=1 when an API key is provided", async () => {
+    const root = await fixtureRoot();
+    const server = await createServer({
+      rootDir: root,
+      dataDir: join(root, "data"),
+      anthropicApiKey: "sk-test"
+    });
+
+    const response = await server.inject({ method: "GET", url: "/api/health" });
+    expect(response.json().agents).toEqual({ cliCount: 0, byokProviders: 1 });
+    await server.close();
+  });
 });
