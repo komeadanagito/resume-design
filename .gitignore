@@ -8,8 +8,10 @@ target/
 
 # Node / Vite / Tauri build artifacts
 node_modules/
+.pnpm-store/
 apps/*/dist/
 apps/*/.vite/
 apps/*/src-tauri/target/
 apps/*/src-tauri/gen/
 apps/*/tsconfig.tsbuildinfo
+.claude/
