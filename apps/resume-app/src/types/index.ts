@@ -25,17 +25,9 @@ export interface ProjectMetadata {
   };
 }
 
-export interface Project {
-  id: string;
-  name: string;
-  createdAt: number;
-  updatedAt: number;
-  skillId: string | null;
-  designSystemId: string | null;
-  pendingPrompt?: string;
-  locale?: string;
-  fidelity?: 'wireframe' | 'high';
-}
+// Project mirrors the daemon's contracts ProjectSchema (ISO-8601 timestamps).
+// Slice-5 will reintroduce per-project skill binding through the chat protocol.
+export type { Project, Locale, ProjectState, SendMessageRequest, SseEvent, AppError } from '@resume-studio/contracts';
 
 export interface Conversation {
   id: string;
