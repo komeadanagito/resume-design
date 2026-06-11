@@ -9,24 +9,24 @@ const STARTER_PROMPTS = [
     icon: '▤',
     title: '现代科技风',
     subtitle: '双列 + 蓝色主色',
-    prompt: '/skill:resume-modern-tech 帮我把简历修改为适合投递字节跳动后端开发岗位的现代科技风格，突出微服务和Go语言的高并发优化经验。'
+    prompt: '帮我把简历修改为适合投递字节跳动后端开发岗位的现代科技风格，突出微服务和 Go 语言的高并发优化经验。'
   },
   {
     icon: '▦',
     title: '投行咨询经典',
     subtitle: '单列 + 黑色系统字体',
-    prompt: '/skill:resume-classic 帮我把简历整理成经典排版，适合投递中金公司或麦肯锡，加强量化数据指标，去掉无关的社团经历。'
+    prompt: '帮我把简历整理成经典排版，适合投递中金公司或麦肯锡，加强量化数据指标，去掉无关的社团经历。'
   },
   {
     icon: '◈',
     title: '中英双语简历',
     subtitle: '多语言数据对齐',
-    prompt: '/skill:resume-bilingual-cn-en 将这份简历进行中英文翻译并排版，对齐中英文的岗位职责，保持ATS友好度。'
+    prompt: '将这份简历进行中英文翻译并排版，对齐中英文的岗位职责，保持 ATS 友好度。'
   }
 ];
 
 export function ChatPane() {
-  const { messages, status, sendMessage, respondToCard, cancelWorking } = useChat();
+  const { messages, status, errorMessage, sendMessage, respondToCard, cancelWorking } = useChat();
   const listRef = useRef<HTMLDivElement>(null);
 
   // Auto scroll to bottom
@@ -36,8 +36,8 @@ export function ChatPane() {
     }
   }, [messages, status]);
 
-  const handleSend = (text: string, options?: { skillId?: string; designSystemId?: string }) => {
-    sendMessage(text, options);
+  const handleSend = (text: string) => {
+    void sendMessage(text);
   };
 
   return (
@@ -101,6 +101,13 @@ export function ChatPane() {
           ))
         )}
       </div>
+
+      {/* Error banner */}
+      {status === 'error' && (
+        <div className="mx-6 mb-3 rounded-2xl border border-red-200 bg-red-50 px-4 py-2 text-sm text-red-700">
+          {errorMessage ?? '出错了，请重试。'}
+        </div>
+      )}
 
       {/* Composer Input Footer */}
       <div className="p-4 bg-surface-card border-t border-ink-300/10">

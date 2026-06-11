@@ -1,17 +1,14 @@
 import { useState, useRef, useEffect } from 'react';
-import { Send, Square, Sparkles, Paperclip, ChevronUp } from 'lucide-react';
-import { useConfig } from '../state/config';
+import { Send, Square, Sparkles, Paperclip } from 'lucide-react';
 
 interface Props {
-  onSend: (text: string, options?: { skillId?: string; designSystemId?: string }) => void;
+  onSend: (text: string) => void;
   onCancel: () => void;
   status: 'idle' | 'thinking' | 'tooling' | 'writing' | 'error';
 }
 
 export function ChatComposer({ onSend, onCancel, status }: Props) {
-  const { config, updateConfig } = useConfig();
   const [text, setText] = useState('');
-  const [showAgentMenu, setShowAgentMenu] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const isWorking = status !== 'idle' && status !== 'error';
 
@@ -24,17 +21,7 @@ export function ChatComposer({ onSend, onCancel, status }: Props) {
 
   const handleSend = () => {
     if (!text.trim() || isWorking) return;
-    
-    // Parse manual skill overwrite e.g. /skill:resume-modern-tech
-    let skillId: string | undefined;
-    let cleanText = text;
-    const match = /^\/skill:([a-zA-Z0-9-]+)\s*/.exec(text);
-    if (match) {
-      skillId = match[1];
-      cleanText = text.replace(/^\/skill:[a-zA-Z0-9-]+\s*/, '');
-    }
-
-    onSend(cleanText, { skillId });
+    onSend(text);
     setText('');
   };
 
@@ -60,76 +47,11 @@ export function ChatComposer({ onSend, onCancel, status }: Props) {
 
       <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between border-t border-ink-300/10 pt-3">
         <div className="flex items-center gap-2">
-          {/* Agent Selector Button */}
-          <div className="relative">
-            <button
-              onClick={() => setShowAgentMenu(!showAgentMenu)}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-surface-muted hover:bg-surface-tag border border-ink-300/10 rounded-xl text-xs font-semibold text-ink-700 transition"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-brand-500" />
-              <span>
-                {config.mode === 'daemon' ? `Local · ${config.agentId}` : `API · ${config.model}`}
-              </span>
-              <ChevronUp className="w-3 h-3 text-ink-500" />
-            </button>
-
-            {showAgentMenu && (
-              <div className="absolute bottom-full left-0 mb-2 w-64 bg-surface-card border border-ink-300/20 rounded-2xl shadow-card p-3 z-50 space-y-1">
-                <div className="text-[10px] font-bold text-ink-500 px-2.5 py-1 uppercase tracking-wider">
-                  本地 Agent CLI
-                </div>
-                {[
-                  { id: 'claude-code', label: 'Claude Code CLI' },
-                  { id: 'codex', label: 'Codex CLI' },
-                  { id: 'gemini', label: 'Gemini CLI' }
-                ].map((cli) => (
-                  <div
-                    key={cli.id}
-                    onClick={() => {
-                      updateConfig({ mode: 'daemon', agentId: cli.id });
-                      setShowAgentMenu(false);
-                    }}
-                    className={`flex items-center justify-between px-2.5 py-2 text-xs font-medium rounded-xl cursor-pointer hover:bg-surface-muted ${
-                      config.mode === 'daemon' && config.agentId === cli.id
-                        ? 'text-brand-500 bg-brand-50/25'
-                        : 'text-ink-700'
-                    }`}
-                  >
-                    <span>{cli.label}</span>
-                    <span className="text-[10px] text-green-500 font-semibold bg-green-50 px-1.5 py-0.5 rounded">
-                      已安装
-                    </span>
-                  </div>
-                ))}
-                
-                <div className="h-px bg-ink-300/10 my-2" />
-                
-                <div className="text-[10px] font-bold text-ink-500 px-2.5 py-1 uppercase tracking-wider">
-                  API 转发 (BYOK)
-                </div>
-                {[
-                  { model: 'claude-3-5-sonnet-latest', label: 'Anthropic Sonnet 3.5' },
-                  { model: 'gpt-4o', label: 'OpenAI GPT-4o' },
-                  { model: 'gemini-1.5-pro', label: 'Gemini 1.5 Pro' }
-                ].map((byok) => (
-                  <div
-                    key={byok.model}
-                    onClick={() => {
-                      updateConfig({ mode: 'api', model: byok.model });
-                      setShowAgentMenu(false);
-                    }}
-                    className={`flex items-center justify-between px-2.5 py-2 text-xs font-medium rounded-xl cursor-pointer hover:bg-surface-muted ${
-                      config.mode === 'api' && config.model === byok.model
-                        ? 'text-brand-500 bg-brand-50/25'
-                        : 'text-ink-700'
-                    }`}
-                  >
-                    <span>{byok.label}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+          {/* Real AgentPicker (CLI detection + BYOK config) lands in slice 7. */}
+          <span className="inline-flex items-center gap-1.5 rounded-xl bg-surface-muted px-3 py-1.5 text-xs font-semibold text-ink-500 border border-ink-300/10">
+            <Sparkles className="w-3.5 h-3.5 text-brand-500" />
+            Anthropic Sonnet 4.6 (BYOK)
+          </span>
 
           <button className="p-1.5 hover:bg-surface-muted rounded-xl text-ink-500 transition">
             <Paperclip className="w-4 h-4" />

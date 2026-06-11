@@ -29,18 +29,18 @@ const BUILTIN_DS = [
 export function EntryView() {
   const { projects, createProject, deleteProject } = useProjects();
   
-  // Creation panel form state
+  // Creation panel form state. Skill binding moves into the chat protocol in
+  // slice 5; the daemon only persists name/locale/designSystemId today.
   const [name, setName] = useState('');
   const [skillId, setSkillId] = useState('resume-modern-tech');
   const [dsId, setDsId] = useState('linear-style');
-  const [fidelity, setFidelity] = useState<'wireframe' | 'high'>('high');
 
   // Active library tab
   const [activeTab, setActiveTab] = useState<'designs' | 'skills' | 'ds'>('designs');
 
   const handleCreate = async () => {
     if (!name.trim()) return;
-    const project = await createProject(name, skillId, dsId, fidelity);
+    const project = await createProject(name, dsId);
     if (project) {
       navigate({ kind: 'project', projectId: project.id, fileName: null });
     }
@@ -130,33 +130,6 @@ export function EntryView() {
               </select>
             </div>
 
-            {/* Fidelity selector */}
-            <div className="space-y-2">
-              <label className="block text-xs font-bold text-ink-700">保真度 (Fidelity)</label>
-              <div className="grid grid-cols-2 gap-2 bg-surface-muted p-1 rounded-xl border border-ink-300/10">
-                <button
-                  onClick={() => setFidelity('wireframe')}
-                  className={`py-1.5 text-xs font-semibold rounded-lg transition ${
-                    fidelity === 'wireframe' 
-                      ? 'bg-surface-card text-brand-500 shadow-sm font-bold' 
-                      : 'text-ink-700 hover:text-ink-900'
-                  }`}
-                >
-                  线框图风格
-                </button>
-                <button
-                  onClick={() => setFidelity('high')}
-                  className={`py-1.5 text-xs font-semibold rounded-lg transition ${
-                    fidelity === 'high' 
-                      ? 'bg-surface-card text-brand-500 shadow-sm font-bold' 
-                      : 'text-ink-700 hover:text-ink-900'
-                  }`}
-                >
-                  高保真输出
-                </button>
-              </div>
-            </div>
-
             {/* Create Button */}
             <button
               onClick={handleCreate}
@@ -223,11 +196,11 @@ export function EntryView() {
                           {proj.name}
                         </h3>
                         <span className="text-[10px] bg-brand-50 text-brand-500 font-semibold px-2 py-0.5 rounded-full">
-                          {proj.fidelity === 'wireframe' ? '线框' : '高保真'}
+                          {proj.locale}
                         </span>
                       </div>
                       <p className="text-[10px] text-ink-500 font-mono mt-1">
-                        已绑定: {proj.skillId} · {proj.designSystemId}
+                        设计系统: {proj.designSystemId ?? '由 AI 决定'}
                       </p>
                     </div>
 

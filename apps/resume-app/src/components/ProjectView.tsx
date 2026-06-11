@@ -47,7 +47,7 @@ export function ProjectView({ projectId }: Props) {
               <div className="flex items-center gap-2">
                 <h2 className="text-sm font-bold text-ink-900">{currentProject.name}</h2>
                 <span className="text-[9px] bg-brand-50 text-brand-500 font-bold px-1.5 py-0.5 rounded-full uppercase">
-                  {currentProject.fidelity === 'wireframe' ? '线框图' : '高保真'}
+                  {currentProject.locale}
                 </span>
               </div>
               <p className="text-[10px] text-ink-500 font-mono mt-0.5">
@@ -60,7 +60,7 @@ export function ProjectView({ projectId }: Props) {
           <div className="flex items-center gap-4 text-xs font-semibold">
             <div className="flex items-center gap-1.5 text-ink-700 bg-surface-muted px-2.5 py-1.5 rounded-xl border border-ink-300/10">
               <Sparkles className="w-3.5 h-3.5 text-brand-500" />
-              <span>{currentProject.skillId || '无预设风格'}</span>
+              <span>风格由对话决定</span>
             </div>
             <div className="flex items-center gap-1.5 text-ink-700 bg-surface-muted px-2.5 py-1.5 rounded-xl border border-ink-300/10">
               <Sliders className="w-3.5 h-3.5 text-brand-500" />
